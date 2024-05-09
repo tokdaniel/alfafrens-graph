@@ -8,7 +8,7 @@ import channels from "../channels/channels.json";
 import { type Address } from "viem";
 
 
-// Map of channels to identify if an address is a channel
+// Map of channelPools to identify if an address is a channel's pool
 const channelMap = channels.data.channels.reduce<Record<Address, boolean>>(
   (acc, { poolAddress }) => {
     acc[poolAddress.toLowerCase() as Address] = true;
