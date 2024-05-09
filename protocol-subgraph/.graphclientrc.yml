@@ -1,0 +1,16 @@
+sources:
+  - name: protocol
+    handler:
+      graphql:
+        endpoint: '{context.url:https://base-mainnet.subgraph.x.superfluid.dev}'
+        retry: 5
+documents:
+  - './*.graphql'
+  - './fragments/*.graphql'
+codegen:
+  namingConvention: change-case-all#pascalCase
+  scalars:
+    BigInt: string
+    Bytes: string
+    BigDecimal: string
+  maybeValue: T | null | undefined

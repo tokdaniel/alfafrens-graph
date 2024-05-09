@@ -1,0 +1,22 @@
+{
+  "name": "alfafrens-data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "protocol-graph:generate": "graphclient build --dir ./protocol-subgraph",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@superfluid-finance/metadata": "^1.2.2",
+    "typescript": "^5.4.5",
+    "viem": "^2.10.2",
+    "@types/bun": "latest"
+  },
+  "dependencies": {
+    "@graphprotocol/client-cli": "3.0.0"
+  }
+}
