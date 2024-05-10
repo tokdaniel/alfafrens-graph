@@ -1,0 +1,14 @@
+query GlobalData {
+  globalData(id: "0x45000000") {
+    lastUpdatedTimestamp
+    totalClaimed
+    totalNumberOfChannels
+    totalNumberOfStakers
+    totalNumberOfSubscriptions
+    totalStaked
+    totalSubscriptionCashbackFlowAmount
+    totalSubscriptionCashbackFlowRate
+    totalSubscriptionFlowAmount
+    totalSubscriptionFlowRate
+  }
+}

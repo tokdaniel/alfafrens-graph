@@ -1,0 +1,7 @@
+#import "fragments/ChannelFragment.graphql"
+
+query Channels($first: Int, $skip: Int) {
+  channels(first: $first, skip: $skip) {
+    ...ChannelFragment
+  }
+}

@@ -4,6 +4,11 @@ sources:
       graphql:
         endpoint: '{context.url:https://base-mainnet.subgraph.x.superfluid.dev}'
         retry: 5
+  - name: alfafrens
+    handler:
+      graphql:
+        endpoint: "https://api.goldsky.com/api/public/project_clsnd6xsoma5j012qepvucfpp/subgraphs/alfafrens/prod/gn"
+        retry: 5
 documents:
   - './*.graphql'
   - './fragments/*.graphql'
