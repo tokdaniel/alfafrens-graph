@@ -1,0 +1,20 @@
+fragment ChannelFragment on Channel {
+  creator
+  creatorSubscriptionPercentage
+  currentStaked
+  estimatedEarningsPerSecond
+  id
+  incomeToStakeRatio
+  lastUpdatedTimestamp
+  numberOfStakers
+  numberOfSubscribers
+  owner
+  poolAddress
+  stakeToIncomeRatio
+  subscriptionFlowRatePrice
+  totalClaimed
+  totalSubscriptionCashbackFlowAmount
+  totalSubscriptionCashbackFlowRate
+  totalSubscriptionFlowRate
+  totalSubscriptionInflowAmount
+}
