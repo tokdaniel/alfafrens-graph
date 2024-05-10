@@ -1,11 +1,9 @@
 import { getBuiltGraphSdkFor } from "../subgraph";
-import { supportedChains } from "./endpoints";
 import { DEGENx } from "./constants";
 import * as TE from "fp-ts/TaskEither";
 import { pipe } from "fp-ts/function";
 import { log } from "fp-ts/Console";
-import { ChannelsQuery, type PoolsWithMembersConnectedAndZeroUnitsQuery } from "../subgraph/.graphclient";
-import { fetchPaginatedChannels } from "./fetchChannels";
+import { type PoolsWithMembersConnectedAndZeroUnitsQuery } from "../subgraph/.graphclient";
 import { Address } from "viem";
 
 interface PaginatedChannelsResponse<T> {
@@ -16,7 +14,9 @@ interface PaginatedChannelsResponse<T> {
 export const fetchPaginatedPools = (
   client: ReturnType<typeof getBuiltGraphSdkFor>,
   channelMap: Record<Address, boolean>,
-  query: 'PoolsWithMembersConnectedAndZeroUnits' | 'PoolsWithMembersDisConnectedAndNonZeroUnits',
+  query:
+    | "PoolsWithMembersConnectedAndZeroUnits"
+    | "PoolsWithMembersDisConnectedAndNonZeroUnits",
   page = 0,
   accumulatedData: PaginatedChannelsResponse<PoolsWithMembersConnectedAndZeroUnitsQuery>[] = []
 ): TE.TaskEither<
@@ -42,9 +42,10 @@ export const fetchPaginatedPools = (
       (reason: unknown) => new Error(String(reason))
     ),
     TE.chain((response) => {
-      const newPools = response.data.pools.filter(
-        (pool) => pool.poolMembers.length > 0 && channelMap[pool.id.toLowerCase()]
-      );
+      const newPools = response.data.pools.filter((pool) => {
+        console.log({ isChannel: channelMap[pool.id.toLowerCase()] });
+        return pool.poolMembers.length > 0 && channelMap[pool.id.toLowerCase()];
+      });
 
       const newData = accumulatedData.concat({
         data: { pools: newPools },
