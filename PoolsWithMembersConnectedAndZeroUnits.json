@@ -24,14 +24,6 @@
     "id": "0x02069fa73f070588f5a9ec40a37fe42e8b96fac9",
     "poolMembers": [
       {
-        "id": "poolMember-0x02069fa73f070588f5a9ec40a37fe42e8b96fac9-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x02069fa73f070588f5a9ec40a37fe42e8b96fac9-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
           "id": "0x4461136812d0bdff068699c3ee401e4abb60e805"
@@ -252,14 +244,6 @@
         },
         "units": "0",
         "isConnected": true
-      },
-      {
-        "id": "poolMember-0x1201f522dc932e7348b3a4c181449d74e0389b36-0x8010cc9b87cd9fa20260c43556600bd2e99aef06",
-        "account": {
-          "id": "0x8010cc9b87cd9fa20260c43556600bd2e99aef06"
-        },
-        "units": "0",
-        "isConnected": true
       }
     ]
   },
@@ -328,14 +312,6 @@
         },
         "units": "0",
         "isConnected": true
-      },
-      {
-        "id": "poolMember-0x1638a00b92ee16d9ee26a105b3165a634c1973a0-0x3fcd1ff9b160ba8de92b9282c49f496804fa840c",
-        "account": {
-          "id": "0x3fcd1ff9b160ba8de92b9282c49f496804fa840c"
-        },
-        "units": "0",
-        "isConnected": true
       }
     ]
   },
@@ -384,14 +360,6 @@
   {
     "id": "0x17157295ff9d84bdf36f470213bd0f8b7d63b30b",
     "poolMembers": [
-      {
-        "id": "poolMember-0x17157295ff9d84bdf36f470213bd0f8b7d63b30b-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0x17157295ff9d84bdf36f470213bd0f8b7d63b30b-0x4006a1ed8fb1133d80962d9a85598040d6e54d07",
         "account": {
@@ -515,14 +483,6 @@
         "isConnected": true
       },
       {
-        "id": "poolMember-0x17c7fcdf51488e9f6f099c2b2f893ab2261a10af-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x17c7fcdf51488e9f6f099c2b2f893ab2261a10af-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
           "id": "0x4461136812d0bdff068699c3ee401e4abb60e805"
@@ -560,14 +520,6 @@
         "id": "poolMember-0x1870e8e6fc0ef7473ea4fcb96a9f229ecf47cce5-0x2f6446f6191d075c47f0d12e5e568fb41b900abc",
         "account": {
           "id": "0x2f6446f6191d075c47f0d12e5e568fb41b900abc"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0x1870e8e6fc0ef7473ea4fcb96a9f229ecf47cce5-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
         },
         "units": "0",
         "isConnected": true
@@ -650,22 +602,6 @@
         "id": "poolMember-0x1bd2043f6bdc348188dfcb9577707c270ea3352c-0x304d4364c631f07824acb84d11ed42b153e55d4b",
         "account": {
           "id": "0x304d4364c631f07824acb84d11ed42b153e55d4b"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0x1bd2043f6bdc348188dfcb9577707c270ea3352c-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0x1bd2043f6bdc348188dfcb9577707c270ea3352c-0x3fcd1ff9b160ba8de92b9282c49f496804fa840c",
-        "account": {
-          "id": "0x3fcd1ff9b160ba8de92b9282c49f496804fa840c"
         },
         "units": "0",
         "isConnected": true
@@ -816,14 +752,6 @@
   {
     "id": "0x1c1a150c9beae3cbad62a77d5b678828bb6033fe",
     "poolMembers": [
-      {
-        "id": "poolMember-0x1c1a150c9beae3cbad62a77d5b678828bb6033fe-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0x1c1a150c9beae3cbad62a77d5b678828bb6033fe-0x74b2a51cb2c46d097e8d9c1de6153afb6f55a021",
         "account": {
@@ -1048,22 +976,6 @@
         "isConnected": true
       },
       {
-        "id": "poolMember-0x21e0560073643e65922b4b15a2653c04a28512ae-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0x21e0560073643e65922b4b15a2653c04a28512ae-0x3fcd1ff9b160ba8de92b9282c49f496804fa840c",
-        "account": {
-          "id": "0x3fcd1ff9b160ba8de92b9282c49f496804fa840c"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x21e0560073643e65922b4b15a2653c04a28512ae-0x4006a1ed8fb1133d80962d9a85598040d6e54d07",
         "account": {
           "id": "0x4006a1ed8fb1133d80962d9a85598040d6e54d07"
@@ -1213,14 +1125,6 @@
     "id": "0x231a49c34e6e04e494a2d340fb5bc8aeee667a74",
     "poolMembers": [
       {
-        "id": "poolMember-0x231a49c34e6e04e494a2d340fb5bc8aeee667a74-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x231a49c34e6e04e494a2d340fb5bc8aeee667a74-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
           "id": "0x4461136812d0bdff068699c3ee401e4abb60e805"
@@ -1284,14 +1188,6 @@
         "id": "poolMember-0x27b3f384e5813728eb78fb8634b8c963a637d4c2-0x51c403d369c821e8628ef1eec91b9adcc5daa884",
         "account": {
           "id": "0x51c403d369c821e8628ef1eec91b9adcc5daa884"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0x27b3f384e5813728eb78fb8634b8c963a637d4c2-0x8010cc9b87cd9fa20260c43556600bd2e99aef06",
-        "account": {
-          "id": "0x8010cc9b87cd9fa20260c43556600bd2e99aef06"
         },
         "units": "0",
         "isConnected": true
@@ -1513,19 +1409,6 @@
     ]
   },
   {
-    "id": "0x34976f03eb3f796072c45168f6ef25c572ef65d8",
-    "poolMembers": [
-      {
-        "id": "poolMember-0x34976f03eb3f796072c45168f6ef25c572ef65d8-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      }
-    ]
-  },
-  {
     "id": "0x357cc2a2e78fb5400444190201507b3571cb460e",
     "poolMembers": [
       {
@@ -1541,14 +1424,6 @@
   {
     "id": "0x3729b28191650d15ce676493ee86dece892eb485",
     "poolMembers": [
-      {
-        "id": "poolMember-0x3729b28191650d15ce676493ee86dece892eb485-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0x3729b28191650d15ce676493ee86dece892eb485-0xc30e08ac8ceb7171795b61cc57cec6e11aa1ee2f",
         "account": {
@@ -1579,6 +1454,19 @@
         "id": "poolMember-0x386fc200a928bc3aeddd6b6a580546119e4b916d-0x3401c2df19f93a81867dafe0e2901c8e10a78a7e",
         "account": {
           "id": "0x3401c2df19f93a81867dafe0e2901c8e10a78a7e"
+        },
+        "units": "0",
+        "isConnected": true
+      }
+    ]
+  },
+  {
+    "id": "0x3911803bdf66f473b330732cf5ad17f3df091458",
+    "poolMembers": [
+      {
+        "id": "poolMember-0x3911803bdf66f473b330732cf5ad17f3df091458-0xc8ee5c9c6d2388a8d95f49cd7dcb6afc704b39c9",
+        "account": {
+          "id": "0xc8ee5c9c6d2388a8d95f49cd7dcb6afc704b39c9"
         },
         "units": "0",
         "isConnected": true
@@ -1791,25 +1679,9 @@
         "isConnected": true
       },
       {
-        "id": "poolMember-0x40610d3857d39c9fb8491df08de952569ec94b86-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x40610d3857d39c9fb8491df08de952569ec94b86-0x35eba16081a977ed9e13fab0193e82a8c971ffcb",
         "account": {
           "id": "0x35eba16081a977ed9e13fab0193e82a8c971ffcb"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0x40610d3857d39c9fb8491df08de952569ec94b86-0x3fcd1ff9b160ba8de92b9282c49f496804fa840c",
-        "account": {
-          "id": "0x3fcd1ff9b160ba8de92b9282c49f496804fa840c"
         },
         "units": "0",
         "isConnected": true
@@ -2108,14 +1980,6 @@
     "id": "0x41236fdede5bc7d09715fdd81c05ecd4d3cae1e7",
     "poolMembers": [
       {
-        "id": "poolMember-0x41236fdede5bc7d09715fdd81c05ecd4d3cae1e7-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x41236fdede5bc7d09715fdd81c05ecd4d3cae1e7-0x43f2030c0bb4311d103c2df70c85b104fa45066f",
         "account": {
           "id": "0x43f2030c0bb4311d103c2df70c85b104fa45066f"
@@ -2270,14 +2134,6 @@
         "isConnected": true
       },
       {
-        "id": "poolMember-0x41af636a49577d7d8aed25ae2cf355a97364168a-0x3fcd1ff9b160ba8de92b9282c49f496804fa840c",
-        "account": {
-          "id": "0x3fcd1ff9b160ba8de92b9282c49f496804fa840c"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x41af636a49577d7d8aed25ae2cf355a97364168a-0xe22d9a24670259e2be20435b065be90b62138513",
         "account": {
           "id": "0xe22d9a24670259e2be20435b065be90b62138513"
@@ -2290,14 +2146,6 @@
   {
     "id": "0x42fe3d2d3fc89c8947b2214d40a561a5205444cd",
     "poolMembers": [
-      {
-        "id": "poolMember-0x42fe3d2d3fc89c8947b2214d40a561a5205444cd-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0x42fe3d2d3fc89c8947b2214d40a561a5205444cd-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
@@ -2499,22 +2347,6 @@
         "isConnected": true
       },
       {
-        "id": "poolMember-0x5370186c4e5e9e5582a567afc09a4a555c363f92-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0x5370186c4e5e9e5582a567afc09a4a555c363f92-0x3fcd1ff9b160ba8de92b9282c49f496804fa840c",
-        "account": {
-          "id": "0x3fcd1ff9b160ba8de92b9282c49f496804fa840c"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x5370186c4e5e9e5582a567afc09a4a555c363f92-0x416220feff7f1d29bd9529ce77ef6a7cb3dcd600",
         "account": {
           "id": "0x416220feff7f1d29bd9529ce77ef6a7cb3dcd600"
@@ -2653,14 +2485,6 @@
     "id": "0x571fb805d88868c8ac18808b48572a251386ed9e",
     "poolMembers": [
       {
-        "id": "poolMember-0x571fb805d88868c8ac18808b48572a251386ed9e-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x571fb805d88868c8ac18808b48572a251386ed9e-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
           "id": "0x4461136812d0bdff068699c3ee401e4abb60e805"
@@ -2690,14 +2514,6 @@
         "id": "poolMember-0x57b43793557fec2ea439ee7fc38d36fa220c458d-0x2f6446f6191d075c47f0d12e5e568fb41b900abc",
         "account": {
           "id": "0x2f6446f6191d075c47f0d12e5e568fb41b900abc"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0x57b43793557fec2ea439ee7fc38d36fa220c458d-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
         },
         "units": "0",
         "isConnected": true
@@ -2895,14 +2711,6 @@
         "isConnected": true
       },
       {
-        "id": "poolMember-0x5ebb06a188273039d54c59272775f4e393f992ec-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x5ebb06a188273039d54c59272775f4e393f992ec-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
           "id": "0x4461136812d0bdff068699c3ee401e4abb60e805"
@@ -2956,14 +2764,6 @@
     "id": "0x5f34d832c38a7f1974419d681605fc892736ec09",
     "poolMembers": [
       {
-        "id": "poolMember-0x5f34d832c38a7f1974419d681605fc892736ec09-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x5f34d832c38a7f1974419d681605fc892736ec09-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
           "id": "0x4461136812d0bdff068699c3ee401e4abb60e805"
@@ -2980,14 +2780,6 @@
         "id": "poolMember-0x5f5f152cf3d173b17c996f52ad34bec522c21be3-0x2f6446f6191d075c47f0d12e5e568fb41b900abc",
         "account": {
           "id": "0x2f6446f6191d075c47f0d12e5e568fb41b900abc"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0x5f5f152cf3d173b17c996f52ad34bec522c21be3-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
         },
         "units": "0",
         "isConnected": true
@@ -3051,14 +2843,6 @@
         "isConnected": true
       },
       {
-        "id": "poolMember-0x63aae6ffdb8496bbb2fe9bd196368ce308160c8b-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x63aae6ffdb8496bbb2fe9bd196368ce308160c8b-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
           "id": "0x4461136812d0bdff068699c3ee401e4abb60e805"
@@ -3078,19 +2862,6 @@
         "id": "poolMember-0x63aae6ffdb8496bbb2fe9bd196368ce308160c8b-0x9970dad8ca79a4b6d07d539990b13da934f73489",
         "account": {
           "id": "0x9970dad8ca79a4b6d07d539990b13da934f73489"
-        },
-        "units": "0",
-        "isConnected": true
-      }
-    ]
-  },
-  {
-    "id": "0x64274d8a2eebcb8193cfa975d251b33b93e36c2e",
-    "poolMembers": [
-      {
-        "id": "poolMember-0x64274d8a2eebcb8193cfa975d251b33b93e36c2e-0x8010cc9b87cd9fa20260c43556600bd2e99aef06",
-        "account": {
-          "id": "0x8010cc9b87cd9fa20260c43556600bd2e99aef06"
         },
         "units": "0",
         "isConnected": true
@@ -3200,30 +2971,9 @@
     "id": "0x6f800abdc111f35b238e6c02ffe41aaeb8f1a036",
     "poolMembers": [
       {
-        "id": "poolMember-0x6f800abdc111f35b238e6c02ffe41aaeb8f1a036-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x6f800abdc111f35b238e6c02ffe41aaeb8f1a036-0x9970dad8ca79a4b6d07d539990b13da934f73489",
         "account": {
           "id": "0x9970dad8ca79a4b6d07d539990b13da934f73489"
-        },
-        "units": "0",
-        "isConnected": true
-      }
-    ]
-  },
-  {
-    "id": "0x6fa2201456a219ab7c6fd2c94ffb9687518fa702",
-    "poolMembers": [
-      {
-        "id": "poolMember-0x6fa2201456a219ab7c6fd2c94ffb9687518fa702-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
         },
         "units": "0",
         "isConnected": true
@@ -3254,22 +3004,6 @@
   {
     "id": "0x70a18999eb3c3eb368dc489d6799960686ade836",
     "poolMembers": [
-      {
-        "id": "poolMember-0x70a18999eb3c3eb368dc489d6799960686ade836-0x12f60e468170a75f8564b311c7fe180c2ca2884b",
-        "account": {
-          "id": "0x12f60e468170a75f8564b311c7fe180c2ca2884b"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0x70a18999eb3c3eb368dc489d6799960686ade836-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0x70a18999eb3c3eb368dc489d6799960686ade836-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
@@ -3417,14 +3151,6 @@
   {
     "id": "0x76e2ca149945bb8c6130619ad4ddfa30ecf9be06",
     "poolMembers": [
-      {
-        "id": "poolMember-0x76e2ca149945bb8c6130619ad4ddfa30ecf9be06-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0x76e2ca149945bb8c6130619ad4ddfa30ecf9be06-0x4006a1ed8fb1133d80962d9a85598040d6e54d07",
         "account": {
@@ -3586,14 +3312,6 @@
     "id": "0x7cb10b4d564e0a895b08429f71c3009491368dae",
     "poolMembers": [
       {
-        "id": "poolMember-0x7cb10b4d564e0a895b08429f71c3009491368dae-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x7cb10b4d564e0a895b08429f71c3009491368dae-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
           "id": "0x4461136812d0bdff068699c3ee401e4abb60e805"
@@ -3648,14 +3366,6 @@
   {
     "id": "0x821e35e323e844fb14022c6cfb89874efe066d88",
     "poolMembers": [
-      {
-        "id": "poolMember-0x821e35e323e844fb14022c6cfb89874efe066d88-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0x821e35e323e844fb14022c6cfb89874efe066d88-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
@@ -3749,14 +3459,6 @@
         "isConnected": true
       },
       {
-        "id": "poolMember-0x86cf7d07688fe73bacafe5c7078c0ca9486764d6-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x86cf7d07688fe73bacafe5c7078c0ca9486764d6-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
           "id": "0x4461136812d0bdff068699c3ee401e4abb60e805"
@@ -3817,14 +3519,6 @@
     "id": "0x8872ae45008978e482ac310bcf308c45762bca20",
     "poolMembers": [
       {
-        "id": "poolMember-0x8872ae45008978e482ac310bcf308c45762bca20-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x8872ae45008978e482ac310bcf308c45762bca20-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
           "id": "0x4461136812d0bdff068699c3ee401e4abb60e805"
@@ -3882,14 +3576,6 @@
   {
     "id": "0x88f7acde9351507a1e5308643dfec388bee4b109",
     "poolMembers": [
-      {
-        "id": "poolMember-0x88f7acde9351507a1e5308643dfec388bee4b109-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0x88f7acde9351507a1e5308643dfec388bee4b109-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
@@ -4012,14 +3698,6 @@
         },
         "units": "0",
         "isConnected": true
-      },
-      {
-        "id": "poolMember-0x8ddcf4b053c74109726bba52461d39d71da008fd-0x8010cc9b87cd9fa20260c43556600bd2e99aef06",
-        "account": {
-          "id": "0x8010cc9b87cd9fa20260c43556600bd2e99aef06"
-        },
-        "units": "0",
-        "isConnected": true
       }
     ]
   },
@@ -4087,14 +3765,6 @@
         "isConnected": true
       },
       {
-        "id": "poolMember-0x9756cf8fb85eb86ffc15d905b7acd3e4e4b27818-0x3fcd1ff9b160ba8de92b9282c49f496804fa840c",
-        "account": {
-          "id": "0x3fcd1ff9b160ba8de92b9282c49f496804fa840c"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0x9756cf8fb85eb86ffc15d905b7acd3e4e4b27818-0xe31e190b1e71011aeb982961e13d570eb687dcdb",
         "account": {
           "id": "0xe31e190b1e71011aeb982961e13d570eb687dcdb"
@@ -4107,14 +3777,6 @@
   {
     "id": "0x980161434ca3da83b35ad31a636af3292161c6fb",
     "poolMembers": [
-      {
-        "id": "poolMember-0x980161434ca3da83b35ad31a636af3292161c6fb-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0x980161434ca3da83b35ad31a636af3292161c6fb-0x9970dad8ca79a4b6d07d539990b13da934f73489",
         "account": {
@@ -4217,14 +3879,6 @@
         "id": "poolMember-0x9a783828cb4bb8869b6dbb39eb1ca43b3fd799d9-0x30629f16d616d53408457a864771bf67a2aa1efa",
         "account": {
           "id": "0x30629f16d616d53408457a864771bf67a2aa1efa"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0x9a783828cb4bb8869b6dbb39eb1ca43b3fd799d9-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
         },
         "units": "0",
         "isConnected": true
@@ -4646,30 +4300,9 @@
     "id": "0xa5e8bdcbb11fd9a2e831d6c4e083eacb1fffd006",
     "poolMembers": [
       {
-        "id": "poolMember-0xa5e8bdcbb11fd9a2e831d6c4e083eacb1fffd006-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0xa5e8bdcbb11fd9a2e831d6c4e083eacb1fffd006-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
           "id": "0x4461136812d0bdff068699c3ee401e4abb60e805"
-        },
-        "units": "0",
-        "isConnected": true
-      }
-    ]
-  },
-  {
-    "id": "0xa67d4285649abdee74f6ad3f0d3d3a27f27885d3",
-    "poolMembers": [
-      {
-        "id": "poolMember-0xa67d4285649abdee74f6ad3f0d3d3a27f27885d3-0x3fcd1ff9b160ba8de92b9282c49f496804fa840c",
-        "account": {
-          "id": "0x3fcd1ff9b160ba8de92b9282c49f496804fa840c"
         },
         "units": "0",
         "isConnected": true
@@ -4701,14 +4334,6 @@
     "id": "0xa86cce6898bb782e21aaf03b9cc3589762438c73",
     "poolMembers": [
       {
-        "id": "poolMember-0xa86cce6898bb782e21aaf03b9cc3589762438c73-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0xa86cce6898bb782e21aaf03b9cc3589762438c73-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
           "id": "0x4461136812d0bdff068699c3ee401e4abb60e805"
@@ -4732,19 +4357,6 @@
     ]
   },
   {
-    "id": "0xa948cd7ef95e3d3812f040647ff0a48869527031",
-    "poolMembers": [
-      {
-        "id": "poolMember-0xa948cd7ef95e3d3812f040647ff0a48869527031-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      }
-    ]
-  },
-  {
     "id": "0xaa2c575083bc44cd8b2e6acbdd4f1570546753d3",
     "poolMembers": [
       {
@@ -4760,14 +4372,6 @@
   {
     "id": "0xab0c6d8c202ce132890c8a99689cbbe04c102690",
     "poolMembers": [
-      {
-        "id": "poolMember-0xab0c6d8c202ce132890c8a99689cbbe04c102690-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0xab0c6d8c202ce132890c8a99689cbbe04c102690-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
@@ -4829,14 +4433,6 @@
   {
     "id": "0xab17f031e41e542f2421b9c46442ed69580c44eb",
     "poolMembers": [
-      {
-        "id": "poolMember-0xab17f031e41e542f2421b9c46442ed69580c44eb-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0xab17f031e41e542f2421b9c46442ed69580c44eb-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
@@ -4996,14 +4592,6 @@
     "id": "0xaf2568ed55d7ed1bc1e0586dcbc81088122fc820",
     "poolMembers": [
       {
-        "id": "poolMember-0xaf2568ed55d7ed1bc1e0586dcbc81088122fc820-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0xaf2568ed55d7ed1bc1e0586dcbc81088122fc820-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
           "id": "0x4461136812d0bdff068699c3ee401e4abb60e805"
@@ -5078,19 +4666,6 @@
         "id": "poolMember-0xb1ea2e7cb859ee5086b53cee5f9dc7d2f8080433-0x7786df7af883d4e92a09923063c3e7509c4eda8e",
         "account": {
           "id": "0x7786df7af883d4e92a09923063c3e7509c4eda8e"
-        },
-        "units": "0",
-        "isConnected": true
-      }
-    ]
-  },
-  {
-    "id": "0xb1eb60f47718cba92ff5b72a59d2e258e81873fa",
-    "poolMembers": [
-      {
-        "id": "poolMember-0xb1eb60f47718cba92ff5b72a59d2e258e81873fa-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
         },
         "units": "0",
         "isConnected": true
@@ -5274,46 +4849,12 @@
     ]
   },
   {
-    "id": "0xbc593d06ac5e18144e71aa1bf180f8b58f8be65b",
-    "poolMembers": [
-      {
-        "id": "poolMember-0xbc593d06ac5e18144e71aa1bf180f8b58f8be65b-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      }
-    ]
-  },
-  {
-    "id": "0xbd0705aa2f35b1d686cf2f51c0c31a1cdfccf395",
-    "poolMembers": [
-      {
-        "id": "poolMember-0xbd0705aa2f35b1d686cf2f51c0c31a1cdfccf395-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      }
-    ]
-  },
-  {
     "id": "0xbd5ced1a0a779ba07abe06853236229289b51ac1",
     "poolMembers": [
       {
         "id": "poolMember-0xbd5ced1a0a779ba07abe06853236229289b51ac1-0x2f6446f6191d075c47f0d12e5e568fb41b900abc",
         "account": {
           "id": "0x2f6446f6191d075c47f0d12e5e568fb41b900abc"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0xbd5ced1a0a779ba07abe06853236229289b51ac1-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
         },
         "units": "0",
         "isConnected": true
@@ -5357,22 +4898,6 @@
   {
     "id": "0xc326cd645cd895563441b03dc2001312ad68c136",
     "poolMembers": [
-      {
-        "id": "poolMember-0xc326cd645cd895563441b03dc2001312ad68c136-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0xc326cd645cd895563441b03dc2001312ad68c136-0x8010cc9b87cd9fa20260c43556600bd2e99aef06",
-        "account": {
-          "id": "0x8010cc9b87cd9fa20260c43556600bd2e99aef06"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0xc326cd645cd895563441b03dc2001312ad68c136-0xa9cd205eccbf2af354541688f0327cd60ef238e1",
         "account": {
@@ -5434,29 +4959,8 @@
     ]
   },
   {
-    "id": "0xc63d788e8983e1851246bedfa056b584f4001edf",
-    "poolMembers": [
-      {
-        "id": "poolMember-0xc63d788e8983e1851246bedfa056b584f4001edf-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      }
-    ]
-  },
-  {
     "id": "0xc6fd0b0ad5d72da53f13c55aecfdde34d3f443c4",
     "poolMembers": [
-      {
-        "id": "poolMember-0xc6fd0b0ad5d72da53f13c55aecfdde34d3f443c4-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0xc6fd0b0ad5d72da53f13c55aecfdde34d3f443c4-0x4006a1ed8fb1133d80962d9a85598040d6e54d07",
         "account": {
@@ -5527,14 +5031,6 @@
     "id": "0xc7214cd848c21e1c4762cceb0150f03951245fd9",
     "poolMembers": [
       {
-        "id": "poolMember-0xc7214cd848c21e1c4762cceb0150f03951245fd9-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0xc7214cd848c21e1c4762cceb0150f03951245fd9-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
           "id": "0x4461136812d0bdff068699c3ee401e4abb60e805"
@@ -5559,19 +5055,6 @@
         "id": "poolMember-0xc79acd1582538801b4c94a70f83bfad112b19152-0x3401c2df19f93a81867dafe0e2901c8e10a78a7e",
         "account": {
           "id": "0x3401c2df19f93a81867dafe0e2901c8e10a78a7e"
-        },
-        "units": "0",
-        "isConnected": true
-      }
-    ]
-  },
-  {
-    "id": "0xc82904b3546d466fa8c13c4fc3082d9dd99f9f8b",
-    "poolMembers": [
-      {
-        "id": "poolMember-0xc82904b3546d466fa8c13c4fc3082d9dd99f9f8b-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
         },
         "units": "0",
         "isConnected": true
@@ -5628,14 +5111,6 @@
   {
     "id": "0xc9f3aad2ba2af26063b081a111d464a98504a9a3",
     "poolMembers": [
-      {
-        "id": "poolMember-0xc9f3aad2ba2af26063b081a111d464a98504a9a3-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0xc9f3aad2ba2af26063b081a111d464a98504a9a3-0x96ca0c134b37a8ee1b15940b2c36bff35f87f619",
         "account": {
@@ -5698,19 +5173,6 @@
         "id": "poolMember-0xcac3d00ba007aa11789039fab367f4b541a71266-0xb13899208c7ce29dba615be3f73956b4ba3cdce2",
         "account": {
           "id": "0xb13899208c7ce29dba615be3f73956b4ba3cdce2"
-        },
-        "units": "0",
-        "isConnected": true
-      }
-    ]
-  },
-  {
-    "id": "0xcaf4e08198cb4d77a1dc7818af57697bb0739018",
-    "poolMembers": [
-      {
-        "id": "poolMember-0xcaf4e08198cb4d77a1dc7818af57697bb0739018-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
         },
         "units": "0",
         "isConnected": true
@@ -5898,19 +5360,6 @@
     ]
   },
   {
-    "id": "0xcf7d17e1b53590b3723fdb7da9b8d0c465796d95",
-    "poolMembers": [
-      {
-        "id": "poolMember-0xcf7d17e1b53590b3723fdb7da9b8d0c465796d95-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      }
-    ]
-  },
-  {
     "id": "0xcfcdedd1bef22e6c5467115fba1a948f66d2e544",
     "poolMembers": [
       {
@@ -5960,14 +5409,6 @@
   {
     "id": "0xd08226e3f6c22b2ec24ce943eb0dd2c866046597",
     "poolMembers": [
-      {
-        "id": "poolMember-0xd08226e3f6c22b2ec24ce943eb0dd2c866046597-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0xd08226e3f6c22b2ec24ce943eb0dd2c866046597-0x416220feff7f1d29bd9529ce77ef6a7cb3dcd600",
         "account": {
@@ -6061,14 +5502,6 @@
         "isConnected": true
       },
       {
-        "id": "poolMember-0xd373811f243e537ea01d81a06a5e04505185fc91-0x3fcd1ff9b160ba8de92b9282c49f496804fa840c",
-        "account": {
-          "id": "0x3fcd1ff9b160ba8de92b9282c49f496804fa840c"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0xd373811f243e537ea01d81a06a5e04505185fc91-0x965cddf03aa177e853b8bac2f033b9ec6485fa3f",
         "account": {
           "id": "0x965cddf03aa177e853b8bac2f033b9ec6485fa3f"
@@ -6081,14 +5514,6 @@
   {
     "id": "0xd4fa311429a541271c9f31fc01a199b4fcd1af47",
     "poolMembers": [
-      {
-        "id": "poolMember-0xd4fa311429a541271c9f31fc01a199b4fcd1af47-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0xd4fa311429a541271c9f31fc01a199b4fcd1af47-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
@@ -6131,14 +5556,6 @@
   {
     "id": "0xd8132919b29b89da762d67193852d6633f9ef9ae",
     "poolMembers": [
-      {
-        "id": "poolMember-0xd8132919b29b89da762d67193852d6633f9ef9ae-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0xd8132919b29b89da762d67193852d6633f9ef9ae-0x7fdc934dffaea85156dcebc3282fd1344dee0f36",
         "account": {
@@ -6402,19 +5819,6 @@
     ]
   },
   {
-    "id": "0xe7858538c56b2587e7dca0477d34f5195771099e",
-    "poolMembers": [
-      {
-        "id": "poolMember-0xe7858538c56b2587e7dca0477d34f5195771099e-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      }
-    ]
-  },
-  {
     "id": "0xe7964b138195145070e65e1f13ccf7272f17f90f",
     "poolMembers": [
       {
@@ -6505,14 +5909,6 @@
         "id": "poolMember-0xecf7bf8848f9b0e387bb82931447eaf230fb2133-0x2f6446f6191d075c47f0d12e5e568fb41b900abc",
         "account": {
           "id": "0x2f6446f6191d075c47f0d12e5e568fb41b900abc"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0xecf7bf8848f9b0e387bb82931447eaf230fb2133-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
         },
         "units": "0",
         "isConnected": true
@@ -6622,14 +6018,6 @@
         "isConnected": true
       },
       {
-        "id": "poolMember-0xecf7bf8848f9b0e387bb82931447eaf230fb2133-0xf41066202ece0f9f82459ecbef05d503f95bde03",
-        "account": {
-          "id": "0xf41066202ece0f9f82459ecbef05d503f95bde03"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0xecf7bf8848f9b0e387bb82931447eaf230fb2133-0xfaa013253a30a191df7bc8edb8ad0285edfad8eb",
         "account": {
           "id": "0xfaa013253a30a191df7bc8edb8ad0285edfad8eb"
@@ -6655,14 +6043,6 @@
   {
     "id": "0xed945602dd9bb86eb83c9191df6e83505cd49e51",
     "poolMembers": [
-      {
-        "id": "poolMember-0xed945602dd9bb86eb83c9191df6e83505cd49e51-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0xed945602dd9bb86eb83c9191df6e83505cd49e51-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
@@ -6697,14 +6077,6 @@
   {
     "id": "0xef1e2e3e07480c6b06f9fbafc303861914b75e9a",
     "poolMembers": [
-      {
-        "id": "poolMember-0xef1e2e3e07480c6b06f9fbafc303861914b75e9a-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0xef1e2e3e07480c6b06f9fbafc303861914b75e9a-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
@@ -6746,14 +6118,6 @@
         "id": "poolMember-0xf21d80b2c8d19ed7d3ad262121c2c3648e5fcba2-0x3401c2df19f93a81867dafe0e2901c8e10a78a7e",
         "account": {
           "id": "0x3401c2df19f93a81867dafe0e2901c8e10a78a7e"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0xf21d80b2c8d19ed7d3ad262121c2c3648e5fcba2-0x3fcd1ff9b160ba8de92b9282c49f496804fa840c",
-        "account": {
-          "id": "0x3fcd1ff9b160ba8de92b9282c49f496804fa840c"
         },
         "units": "0",
         "isConnected": true
@@ -6860,14 +6224,6 @@
         "id": "poolMember-0xf2632fb48bed28ff07ad26b01b82fc27019edeb0-0x08f13ec7f156a9b59cffc4e15485ac849eb23fd8",
         "account": {
           "id": "0x08f13ec7f156a9b59cffc4e15485ac849eb23fd8"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0xf2632fb48bed28ff07ad26b01b82fc27019edeb0-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
         },
         "units": "0",
         "isConnected": true
@@ -7010,14 +6366,6 @@
     "id": "0xf60fc8e2c707caa2fe6d06f21c8803b18db3638c",
     "poolMembers": [
       {
-        "id": "poolMember-0xf60fc8e2c707caa2fe6d06f21c8803b18db3638c-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0xf60fc8e2c707caa2fe6d06f21c8803b18db3638c-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
           "id": "0x4461136812d0bdff068699c3ee401e4abb60e805"
@@ -7030,14 +6378,6 @@
   {
     "id": "0xf74fadf7fb2f0339f7c88ad7e8cf5c03dc6bb064",
     "poolMembers": [
-      {
-        "id": "poolMember-0xf74fadf7fb2f0339f7c88ad7e8cf5c03dc6bb064-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
       {
         "id": "poolMember-0xf74fadf7fb2f0339f7c88ad7e8cf5c03dc6bb064-0x4461136812d0bdff068699c3ee401e4abb60e805",
         "account": {
@@ -7095,14 +6435,6 @@
         "id": "poolMember-0xf81742c73f28ad3194bf4a88a09f2bc5b0beabee-0x2f6446f6191d075c47f0d12e5e568fb41b900abc",
         "account": {
           "id": "0x2f6446f6191d075c47f0d12e5e568fb41b900abc"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0xf81742c73f28ad3194bf4a88a09f2bc5b0beabee-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
         },
         "units": "0",
         "isConnected": true
@@ -7278,14 +6610,6 @@
         "isConnected": true
       },
       {
-        "id": "poolMember-0xf95d2cd68264bac3666c8621b0267c369cf8c97e-0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26",
-        "account": {
-          "id": "0x3097a2e467d81cf43505d71b0f0b8f90f2a0fb26"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
         "id": "poolMember-0xf95d2cd68264bac3666c8621b0267c369cf8c97e-0x79baee96b1091d29c7590c00424055cdd896f125",
         "account": {
           "id": "0x79baee96b1091d29c7590c00424055cdd896f125"
@@ -7449,14 +6773,6 @@
         "id": "poolMember-0xffe3a1de52da136d3d7ddc5aed262d3412cab1fb-0x0d5c2c750a09c294531c70bfb6ee2ac029f07308",
         "account": {
           "id": "0x0d5c2c750a09c294531c70bfb6ee2ac029f07308"
-        },
-        "units": "0",
-        "isConnected": true
-      },
-      {
-        "id": "poolMember-0xffe3a1de52da136d3d7ddc5aed262d3412cab1fb-0x3fcd1ff9b160ba8de92b9282c49f496804fa840c",
-        "account": {
-          "id": "0x3fcd1ff9b160ba8de92b9282c49f496804fa840c"
         },
         "units": "0",
         "isConnected": true

@@ -43,7 +43,7 @@ export const fetchPaginatedPools = (
     ),
     TE.chain((response) => {
       const newPools = response.data.pools.filter(
-        (pool) => pool.poolMembers.length > 0 && channelMap[pool.id]
+        (pool) => pool.poolMembers.length > 0 && channelMap[pool.id.toLowerCase()]
       );
 
       const newData = accumulatedData.concat({

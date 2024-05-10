@@ -6,6 +6,7 @@ import TE from "fp-ts/TaskEither";
 import { writeFile } from "./utils/file-utis";
 import { fetchPaginatedPools } from "./fetchPools";
 import { ChannelsQuery } from "../subgraph/.graphclient";
+import { log } from "fp-ts/lib/Console";
 
 const client = getBuiltGraphSdkFor(supportedChains.base.id);
 
@@ -14,7 +15,7 @@ const transformChannelsToRecord = (
 ): Record<string, boolean> =>
   channels.reduce(
     (acc, channel) => {
-      acc[channel.poolAddress] = true;
+      acc[channel.poolAddress.toLowerCase()] = true;
       return acc;
     },
     {} as Record<string, boolean>
@@ -22,10 +23,12 @@ const transformChannelsToRecord = (
 
 const main = pipe(
   TE.Do,
+  TE.chainFirst(() => TE.fromIO(log("\nFetching Channels...\n"))),
   TE.bind("channelData", () => fetchPaginatedChannels(client)),
   TE.bind("channelMap", ({ channelData }) =>
     TE.right(transformChannelsToRecord(channelData))
   ),
+  TE.chainFirst(() => TE.fromIO(log("\nFetching pools containing poolMembers connected, with 0 units...\n"))),
   TE.bind("poolsCuEQ0", ({ channelMap }) =>
     fetchPaginatedPools(
       client,
@@ -33,6 +36,7 @@ const main = pipe(
       "PoolsWithMembersConnectedAndZeroUnits"
     )
   ),
+  TE.chainFirst(() => TE.fromIO(log("\nFetching pools containing poolMembers disconnected, with x > 0 units...\n"))),
   TE.bind("poolsDuGT0", ({ channelMap }) =>
     fetchPaginatedPools(
       client,
@@ -40,6 +44,7 @@ const main = pipe(
       "PoolsWithMembersDisConnectedAndNonZeroUnits"
     )
   ),
+  TE.chainFirst(() => TE.fromIO(log("\n✅ Fetching Complete. Writing into files..."))),
   TE.chain(({ poolsCuEQ0, poolsDuGT0 }) =>
     pipe(
       writeFile(
@@ -53,7 +58,8 @@ const main = pipe(
         )
       )
     )
-  )
+  ),
+  TE.chainFirst(() => TE.fromIO(log("\n✅ Writing into files complete.\n\tfiles:\n\t\t-- PoolsWithMembersConnectedAndZeroUnits.json\n\t\t-- PoolsWithMembersConnectedAndZeroUnits.json\n"))),
 );
 
 await main();
