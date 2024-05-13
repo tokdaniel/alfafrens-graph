@@ -1,5 +1,5 @@
 import { getBuiltGraphSdkFor } from "../subgraph";
-import { DEGENx } from "./constants";
+import { DEGENx, GOD_ACCOUNT } from "./constants";
 import * as TE from "fp-ts/TaskEither";
 import { pipe } from "fp-ts/function";
 import { log } from "fp-ts/Console";
@@ -42,7 +42,19 @@ export const fetchPaginatedPools = (
       (reason: unknown) => new Error(String(reason))
     ),
     TE.chain((response) => {
-      const newPools = response.data.pools.filter((pool) => {
+      const pools = response.data.pools.map((pool) => {
+        const poolMembers = pool.poolMembers.filter(
+          (member) => member.account.id !== GOD_ACCOUNT
+        );
+
+        return {
+          
+          ...pool,
+          poolMembers,
+        };
+      });
+
+      const newPools = pools.filter((pool) => {
         return pool.poolMembers.length > 0 && channelMap[pool.id.toLowerCase()];
       });
 
@@ -54,7 +66,7 @@ export const fetchPaginatedPools = (
       const logEffect = TE.fromIO(
         log(
           `Fetched page ${response.currentPage + 1}, looking at ${
-            response.data.pools.length
+            pools.length
           } pools. Matching pools: ${
             newPools.length
           } Cumulative number of pools: ${

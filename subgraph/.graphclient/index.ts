@@ -23663,9 +23663,13 @@ export const GlobalDataDocument = gql`
     ` as unknown as DocumentNode<GlobalDataQuery, GlobalDataQueryVariables>;
 export const PoolsWithMembersConnectedAndZeroUnitsDocument = gql`
     query PoolsWithMembersConnectedAndZeroUnits($degenx: String!, $first: Int, $skip: Int) {
-  pools(where: {token: $degenx}, first: $first, skip: $skip) {
+  pools(
+    where: {token: $degenx, poolMembers_: {account_not: "0xc33539b3cA1923624762E8a42D699806C865D652"}}
+    first: $first
+    skip: $skip
+  ) {
     id
-    poolMembers(where: {and: [{isConnected: true}, {units: 0}]}) {
+    poolMembers(where: {isConnected: true, units: 0}) {
       id
       account {
         id
@@ -23678,9 +23682,13 @@ export const PoolsWithMembersConnectedAndZeroUnitsDocument = gql`
     ` as unknown as DocumentNode<PoolsWithMembersConnectedAndZeroUnitsQuery, PoolsWithMembersConnectedAndZeroUnitsQueryVariables>;
 export const PoolsWithMembersDisConnectedAndNonZeroUnitsDocument = gql`
     query PoolsWithMembersDisConnectedAndNonZeroUnits($degenx: String!, $first: Int, $skip: Int) {
-  pools(where: {token: $degenx}, first: $first, skip: $skip) {
+  pools(
+    where: {token: $degenx, poolMembers_: {account_not: "0xc33539b3cA1923624762E8a42D699806C865D652"}}
+    first: $first
+    skip: $skip
+  ) {
     id
-    poolMembers(where: {and: [{isConnected: false}, {units_gt: 0}]}) {
+    poolMembers(where: {isConnected: false, units_gt: 0}) {
       id
       account {
         id

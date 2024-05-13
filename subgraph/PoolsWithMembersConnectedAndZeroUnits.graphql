@@ -1,7 +1,17 @@
-query PoolsWithMembersConnectedAndZeroUnits($degenx: String!, $first: Int, $skip: Int) {
-  pools(where: {token: $degenx}, first: $first, skip: $skip) {
+query PoolsWithMembersConnectedAndZeroUnits(
+  $degenx: String!
+  $first: Int
+  $skip: Int
+) {
+  pools(
+    where: {
+      token: $degenx
+    }
+    first: $first
+    skip: $skip
+  ) {
     id
-    poolMembers(where: {and: [{isConnected: true}, {units: 0}]}) {
+    poolMembers(where: account_not: "0xc33539b3ca1923624762e8a42d699806c865d652", { isConnected: true, units: 0 }) {
       id
       account {
         id

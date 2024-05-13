@@ -3,6 +3,7 @@ import { PoolsWithMembersConnectedAndZeroUnitsQuery } from "../subgraph/.graphcl
 import { Monoid } from "fp-ts/lib/Monoid";
 import { pipe } from "fp-ts/lib/function";
 import * as A from "fp-ts/Array";
+import { GOD_ACCOUNT } from "./constants";
 
 type Pools = PoolsWithMembersConnectedAndZeroUnitsQuery["pools"];
 
@@ -49,7 +50,7 @@ export const aggregatePoolMemberConnectionHealth = (
     pools,
     A.foldMap(monoid)((pool) =>
       pipe(
-        pool.poolMembers,
+        pool.poolMembers.filter((member) => member.account.id !== GOD_ACCOUNT),
         A.foldMap(monoid)((member) =>
           new Map<string, MemberAggregation>().set(
             member.account.id.toLowerCase(),
