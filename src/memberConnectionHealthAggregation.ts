@@ -8,8 +8,8 @@ type Pools = PoolsWithMembersConnectedAndZeroUnitsQuery["pools"];
 
 interface MemberAggregation {
   id: Address;
-  poolsWithZeroUnits: Address[];
-  poolsWithNonZeroUnits: Address[];
+  poolsConnectedWithZeroUnits: Address[];
+  poolsDisconnectedWithNonZeroUnits: Address[];
 }
 
 const getMemberAggregationMonoid = (): Monoid<
@@ -24,11 +24,11 @@ const getMemberAggregationMonoid = (): Monoid<
         if (existing && val) {
           acc.set(key, {
             id: existing.id,
-            poolsWithZeroUnits: existing.poolsWithZeroUnits.concat(
-              val.poolsWithZeroUnits
+            poolsConnectedWithZeroUnits: existing.poolsConnectedWithZeroUnits.concat(
+              val.poolsConnectedWithZeroUnits
             ),
-            poolsWithNonZeroUnits: existing.poolsWithNonZeroUnits.concat(
-              val.poolsWithNonZeroUnits
+            poolsDisconnectedWithNonZeroUnits: existing.poolsDisconnectedWithNonZeroUnits.concat(
+              val.poolsDisconnectedWithNonZeroUnits
             ),
           });
         } else if (val) {
@@ -57,10 +57,10 @@ export const aggregatePoolMemberConnectionHealth = (
             member.account.id.toLowerCase(),
             {
               id: member.account.id.toLowerCase() as Address,
-              poolsWithZeroUnits: member.isConnected
+              poolsConnectedWithZeroUnits: member.isConnected
                 ? [pool.id as Address]
                 : [],
-              poolsWithNonZeroUnits: !member.isConnected
+                poolsDisconnectedWithNonZeroUnits: !member.isConnected
                 ? [pool.id as Address]
                 : [],
             }

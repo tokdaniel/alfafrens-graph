@@ -89,7 +89,7 @@ const poolConnectionsHealth = pipe(
       log(
         [
           "\n✅ Writing into files complete.\n",
-          "files:",
+          "\tfiles:",
           "\n\t-- PoolsWithMembersConnectedAndZeroUnits.json",
           "\n\t-- PoolsWithMembersConnectedAndZeroUnits.json",
           "\n\t-- MemberConnectionHealth.json",
