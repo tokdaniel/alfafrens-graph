@@ -7,7 +7,6 @@ import * as A from "fp-ts/Array";
 type Pools = PoolsWithMembersConnectedAndZeroUnitsQuery["pools"];
 
 interface MemberAggregation {
-  id: Address;
   poolsConnectedWithZeroUnits: Address[];
   poolsDisconnectedWithNonZeroUnits: Address[];
 }
@@ -23,7 +22,6 @@ const getMemberAggregationMonoid = (): Monoid<
 
         if (existing && val) {
           acc.set(key, {
-            id: existing.id,
             poolsConnectedWithZeroUnits: existing.poolsConnectedWithZeroUnits.concat(
               val.poolsConnectedWithZeroUnits
             ),
@@ -56,7 +54,6 @@ export const aggregatePoolMemberConnectionHealth = (
           new Map<string, MemberAggregation>().set(
             member.account.id.toLowerCase(),
             {
-              id: member.account.id.toLowerCase() as Address,
               poolsConnectedWithZeroUnits: member.isConnected
                 ? [pool.id as Address]
                 : [],
