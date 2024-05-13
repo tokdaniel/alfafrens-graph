@@ -451,13 +451,6 @@
     ],
     "poolsDisconnectedWithNonZeroUnits": []
   },
-  "0x407135acc3c251fe4da6355f5ac11d479e678eae": {
-    "poolsConnectedWithZeroUnits": [
-      "0x40610d3857d39c9fb8491df08de952569ec94b86",
-      "0x9f2a9036c64d03a1c936298b9aef83c4699e455c"
-    ],
-    "poolsDisconnectedWithNonZeroUnits": []
-  },
   "0x59b5d50eb997f66d8324a00249b5f2342c274ac4": {
     "poolsConnectedWithZeroUnits": [
       "0x40610d3857d39c9fb8491df08de952569ec94b86",
@@ -2419,6 +2412,7 @@
     "poolsDisconnectedWithNonZeroUnits": [
       "0x1e64718650aa066ab95a4371c718aa0c3a7c5c10",
       "0x5ebb06a188273039d54c59272775f4e393f992ec",
+      "0x73a5eaa606c5cf25d61fb35b4543647acc278330",
       "0xf35d5235d3b0e58901297ee92dde798d648d06df"
     ]
   },
@@ -4793,6 +4787,12 @@
     "poolsConnectedWithZeroUnits": [],
     "poolsDisconnectedWithNonZeroUnits": [
       "0x520d3fbb4bc26cdaad8fbebc4a2b02e89b46c466"
+    ]
+  },
+  "0x41ec58915d9bfd9c2bb4afd877af52e2659a8e9a": {
+    "poolsConnectedWithZeroUnits": [],
+    "poolsDisconnectedWithNonZeroUnits": [
+      "0x5224996cff2ead2c08ef7a4ee8eab56b3b26fc5b"
     ]
   },
   "0x0357661e2570271d86fc9a5aaf684df4378c8268": {

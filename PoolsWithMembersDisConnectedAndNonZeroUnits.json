@@ -7747,6 +7747,19 @@
     ]
   },
   {
+    "id": "0x5224996cff2ead2c08ef7a4ee8eab56b3b26fc5b",
+    "poolMembers": [
+      {
+        "id": "poolMember-0x5224996cff2ead2c08ef7a4ee8eab56b3b26fc5b-0x41ec58915d9bfd9c2bb4afd877af52e2659a8e9a",
+        "account": {
+          "id": "0x41ec58915d9bfd9c2bb4afd877af52e2659a8e9a"
+        },
+        "units": "2",
+        "isConnected": false
+      }
+    ]
+  },
+  {
     "id": "0x5256c8ec740911f1cf10661ac9a27d349297e804",
     "poolMembers": [
       {
@@ -9957,6 +9970,19 @@
           "id": "0xdaa56bad7ad511e0422e29d174d781a5ccdc39a2"
         },
         "units": "12992000000000",
+        "isConnected": false
+      }
+    ]
+  },
+  {
+    "id": "0x73a5eaa606c5cf25d61fb35b4543647acc278330",
+    "poolMembers": [
+      {
+        "id": "poolMember-0x73a5eaa606c5cf25d61fb35b4543647acc278330-0xbca9283fd1a09fd6cbc3bffb537394041787e86e",
+        "account": {
+          "id": "0xbca9283fd1a09fd6cbc3bffb537394041787e86e"
+        },
+        "units": "80451920008246",
         "isConnected": false
       }
     ]

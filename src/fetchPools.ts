@@ -42,19 +42,7 @@ export const fetchPaginatedPools = (
       (reason: unknown) => new Error(String(reason))
     ),
     TE.chain((response) => {
-      const pools = response.data.pools.map((pool) => {
-        const poolMembers = pool.poolMembers.filter(
-          (member) => member.account.id !== GOD_ACCOUNT
-        );
-
-        return {
-          
-          ...pool,
-          poolMembers,
-        };
-      });
-
-      const newPools = pools.filter((pool) => {
+      const newPools = response.data.pools.filter((pool) => {
         return pool.poolMembers.length > 0 && channelMap[pool.id.toLowerCase()];
       });
 
@@ -66,7 +54,7 @@ export const fetchPaginatedPools = (
       const logEffect = TE.fromIO(
         log(
           `Fetched page ${response.currentPage + 1}, looking at ${
-            pools.length
+            response.data.pools.length
           } pools. Matching pools: ${
             newPools.length
           } Cumulative number of pools: ${
