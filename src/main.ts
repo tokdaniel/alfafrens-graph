@@ -7,6 +7,7 @@ import { writeFile } from "./utils/file-utis";
 import { fetchPaginatedPools } from "./fetchPools";
 import { ChannelsQuery } from "../subgraph/.graphclient";
 import { log } from "fp-ts/lib/Console";
+import { aggregatePoolMemberConnectionHealth } from "./memberConnectionHealthAggregation";
 
 const client = getBuiltGraphSdkFor(supportedChains.base.id);
 
@@ -21,14 +22,20 @@ const transformChannelsToRecord = (
     {} as Record<string, boolean>
   );
 
-const main = pipe(
+const poolConnectionsHealth = pipe(
   TE.Do,
   TE.chainFirst(() => TE.fromIO(log("\nFetching Channels...\n"))),
   TE.bind("channelData", () => fetchPaginatedChannels(client)),
   TE.bind("channelMap", ({ channelData }) =>
     TE.right(transformChannelsToRecord(channelData))
   ),
-  TE.chainFirst(() => TE.fromIO(log("\nFetching pools containing poolMembers connected, with 0 units...\n"))),
+  TE.chainFirst(() =>
+    TE.fromIO(
+      log(
+        "\nFetching pools containing poolMembers connected, with 0 units...\n"
+      )
+    )
+  ),
   TE.bind("poolsCuEQ0", ({ channelMap }) =>
     fetchPaginatedPools(
       client,
@@ -36,7 +43,13 @@ const main = pipe(
       "PoolsWithMembersConnectedAndZeroUnits"
     )
   ),
-  TE.chainFirst(() => TE.fromIO(log("\nFetching pools containing poolMembers disconnected, with x > 0 units...\n"))),
+  TE.chainFirst(() =>
+    TE.fromIO(
+      log(
+        "\nFetching pools containing poolMembers disconnected, with x > 0 units...\n"
+      )
+    )
+  ),
   TE.bind("poolsDuGT0", ({ channelMap }) =>
     fetchPaginatedPools(
       client,
@@ -44,8 +57,10 @@ const main = pipe(
       "PoolsWithMembersDisConnectedAndNonZeroUnits"
     )
   ),
-  TE.chainFirst(() => TE.fromIO(log("\n✅ Fetching Complete. Writing into files..."))),
-  TE.chain(({ poolsCuEQ0, poolsDuGT0 }) =>
+  TE.bind("memberConnectionHealth", ({ poolsCuEQ0, poolsDuGT0 }) =>
+    TE.right(aggregatePoolMemberConnectionHealth(poolsCuEQ0.concat(poolsDuGT0)))
+  ),
+  TE.chain(({ poolsCuEQ0, poolsDuGT0, memberConnectionHealth }) =>
     pipe(
       writeFile(
         "PoolsWithMembersConnectedAndZeroUnits.json",
@@ -56,10 +71,32 @@ const main = pipe(
           "PoolsWithMembersDisConnectedAndNonZeroUnits.json",
           JSON.stringify(poolsDuGT0, null, 2)
         )
+      ),
+      TE.chain(() =>
+        writeFile(
+          "MemberConnectionHealth.json",
+          JSON.stringify(
+            Object.fromEntries(memberConnectionHealth.entries()),
+            null,
+            2
+          )
+        )
       )
     )
   ),
-  TE.chainFirst(() => TE.fromIO(log("\n✅ Writing into files complete.\n\tfiles:\n\t\t-- PoolsWithMembersConnectedAndZeroUnits.json\n\t\t-- PoolsWithMembersConnectedAndZeroUnits.json\n"))),
+  TE.chainFirst(() =>
+    TE.fromIO(
+      log(
+        [
+          "\n✅ Writing into files complete.\n",
+          "files:",
+          "\n\t-- PoolsWithMembersConnectedAndZeroUnits.json",
+          "\n\t-- PoolsWithMembersConnectedAndZeroUnits.json",
+          "\n\t-- MemberConnectionHealth.json",
+        ].join("")
+      )
+    )
+  )
 );
 
-await main();
+await poolConnectionsHealth();
