@@ -1,8 +1,8 @@
 import * as IO from "fp-ts/IO";
 
-export const logProgress =
-  (current: number, total: number): IO.IO<void> =>
+export const log =
+  (output: string): IO.IO<void> =>
   () => {
-    const percentage = ((current / total) * 100).toFixed(2);
-    process.stdout.write(`Progress: ${percentage}%\r`);
+    const clearLine = "\r" + " ".repeat(200) + "\r"; // Adjust the length as needed
+    process.stdout.write(`\r${clearLine}${output}`);
   };

@@ -2,7 +2,7 @@ import * as TE from "fp-ts/TaskEither";
 import { pipe } from "fp-ts/lib/function";
 import { ChannelsQuery } from "../subgraph/.graphclient";
 
-import { logProgress } from "./utils/cli-utils";
+import { log } from "./utils/cli-utils";
 import { CHUNK_SIZE } from "./constants";
 import { PaginatedChannelOwnerHandlesResponse } from "./types";
 import { fetchChannelOwnerHandlesChunk } from "./utils/fetch-utils";
@@ -24,7 +24,12 @@ export const fetchChannelOwnerHandles = (
 
   return pipe(
     TE.fromIO(
-      logProgress(totalChannels - remainingChunks.length, totalChannels)
+      log(
+        `Fetching handles for users: ${(
+          ((totalChannels - remainingChunks.length) / totalChannels) *
+          100
+        ).toFixed(2)}%`
+      )
     ),
     TE.chain(() => fetchChannelOwnerHandlesChunk(currentChunk)),
     TE.chain((response) => {

@@ -1,16 +1,17 @@
 import { Address } from "viem";
 
-export interface Users {
-  channeladdress: Address;
-  users: {
-    handle: string;
-    aa_address: string;
-  };
+export interface User {
+  channelAddress: Address;
+  handle: string;
+  aa_address: string;
 }
 
 export interface PaginatedChannelOwnerHandlesResponse {
   result: {
-    data: Users[];
+    data: {
+      channeladdress: Address;
+      users: { handle: string; aa_address: string };
+    }[];
   };
 }
 
@@ -20,7 +21,13 @@ export interface PaginatedChannelsResponse<T> {
 }
 
 export interface MemberAggregation {
-  user: Users["users"];
+  user: User;
   poolsConnectedWithZeroUnits: Address[];
   poolsDisconnectedWithNonZeroUnits: Address[];
 }
+
+export type ChannelMap = Record<
+  Address,
+  { channelAddress: Address; owner: Address }
+>;
+export type HandleMap = Record<Address, User>;

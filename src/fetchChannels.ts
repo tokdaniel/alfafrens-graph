@@ -1,9 +1,9 @@
 import * as TE from "fp-ts/TaskEither";
 import { pipe } from "fp-ts/function";
 import { getBuiltGraphSdkFor } from "../subgraph";
-import { log } from "fp-ts/Console";
 import { ChannelsQuery } from "../subgraph/.graphclient";
 import { PaginatedChannelsResponse } from "./types";
+import { log } from "./utils/cli-utils";
 
 export const fetchPaginatedChannels = (
   client: ReturnType<typeof getBuiltGraphSdkFor>,

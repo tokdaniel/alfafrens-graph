@@ -4,7 +4,7 @@ import { Monoid } from "fp-ts/lib/Monoid";
 import { pipe } from "fp-ts/lib/function";
 import * as A from "fp-ts/Array";
 import { GOD_ACCOUNT } from "./constants";
-import { MemberAggregation, Users } from "./types";
+import { MemberAggregation, User } from "./types";
 
 type Pools = PoolsWithMembersConnectedAndZeroUnitsQuery["pools"];
 
@@ -43,8 +43,7 @@ const getMemberAggregationMonoid = (): Monoid<
 
 export const aggregatePoolMemberConnectionHealth = (
   pools: Pools,
-  channelMap: Record<Address, Address>,
-  handleMap: Record<Address, Users["users"]>
+  handleMap: Record<Address, User>
 ): Map<string, MemberAggregation> => {
   const monoid = getMemberAggregationMonoid();
   return pipe(
@@ -56,7 +55,7 @@ export const aggregatePoolMemberConnectionHealth = (
           new Map<string, MemberAggregation>().set(
             member.account.id.toLowerCase(),
             {
-              user: handleMap[channelMap[pool.id.toLowerCase()]],
+              user: handleMap[member.account.id.toLowerCase()],
               poolsConnectedWithZeroUnits: member.isConnected
                 ? [pool.id as Address]
                 : [],
