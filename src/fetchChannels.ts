@@ -3,11 +3,7 @@ import { pipe } from "fp-ts/function";
 import { getBuiltGraphSdkFor } from "../subgraph";
 import { log } from "fp-ts/Console";
 import { ChannelsQuery } from "../subgraph/.graphclient";
-
-interface PaginatedChannelsResponse<T> {
-  data: T;
-  currentPage: number;
-}
+import { PaginatedChannelsResponse } from "./types";
 
 export const fetchPaginatedChannels = (
   client: ReturnType<typeof getBuiltGraphSdkFor>,

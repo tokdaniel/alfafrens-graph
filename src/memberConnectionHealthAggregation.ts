@@ -4,13 +4,9 @@ import { Monoid } from "fp-ts/lib/Monoid";
 import { pipe } from "fp-ts/lib/function";
 import * as A from "fp-ts/Array";
 import { GOD_ACCOUNT } from "./constants";
+import { MemberAggregation, Users } from "./types";
 
 type Pools = PoolsWithMembersConnectedAndZeroUnitsQuery["pools"];
-
-interface MemberAggregation {
-  poolsConnectedWithZeroUnits: Address[];
-  poolsDisconnectedWithNonZeroUnits: Address[];
-}
 
 const getMemberAggregationMonoid = (): Monoid<
   Map<string, MemberAggregation>
@@ -23,12 +19,15 @@ const getMemberAggregationMonoid = (): Monoid<
 
         if (existing && val) {
           acc.set(key, {
-            poolsConnectedWithZeroUnits: existing.poolsConnectedWithZeroUnits.concat(
-              val.poolsConnectedWithZeroUnits
-            ),
-            poolsDisconnectedWithNonZeroUnits: existing.poolsDisconnectedWithNonZeroUnits.concat(
-              val.poolsDisconnectedWithNonZeroUnits
-            ),
+            user: existing.user,
+            poolsConnectedWithZeroUnits:
+              existing.poolsConnectedWithZeroUnits.concat(
+                val.poolsConnectedWithZeroUnits
+              ),
+            poolsDisconnectedWithNonZeroUnits:
+              existing.poolsDisconnectedWithNonZeroUnits.concat(
+                val.poolsDisconnectedWithNonZeroUnits
+              ),
           });
         } else if (val) {
           acc.set(key, val);
@@ -43,7 +42,9 @@ const getMemberAggregationMonoid = (): Monoid<
 });
 
 export const aggregatePoolMemberConnectionHealth = (
-  pools: Pools
+  pools: Pools,
+  channelMap: Record<Address, Address>,
+  handleMap: Record<Address, Users["users"]>
 ): Map<string, MemberAggregation> => {
   const monoid = getMemberAggregationMonoid();
   return pipe(
@@ -55,10 +56,11 @@ export const aggregatePoolMemberConnectionHealth = (
           new Map<string, MemberAggregation>().set(
             member.account.id.toLowerCase(),
             {
+              user: handleMap[channelMap[pool.id.toLowerCase()]],
               poolsConnectedWithZeroUnits: member.isConnected
                 ? [pool.id as Address]
                 : [],
-                poolsDisconnectedWithNonZeroUnits: !member.isConnected
+              poolsDisconnectedWithNonZeroUnits: !member.isConnected
                 ? [pool.id as Address]
                 : [],
             }

@@ -1,5 +1,5 @@
 import { getBuiltGraphSdkFor } from "../subgraph";
-import { DEGENx, GOD_ACCOUNT } from "./constants";
+import { DEGENx } from "./constants";
 import * as TE from "fp-ts/TaskEither";
 import { pipe } from "fp-ts/function";
 import { log } from "fp-ts/Console";
@@ -13,7 +13,7 @@ interface PaginatedChannelsResponse<T> {
 
 export const fetchPaginatedPools = (
   client: ReturnType<typeof getBuiltGraphSdkFor>,
-  channelMap: Record<Address, boolean>,
+  channelMap: Record<Address, Address>,
   query:
     | "PoolsWithMembersConnectedAndZeroUnits"
     | "PoolsWithMembersDisConnectedAndNonZeroUnits",

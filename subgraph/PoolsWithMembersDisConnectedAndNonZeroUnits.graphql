@@ -2,12 +2,13 @@ query PoolsWithMembersDisConnectedAndNonZeroUnits(
   $degenx: String!
   $first: Int
   $skip: Int
+  $godAcc: String = "0xc33539b3ca1923624762e8a42d699806c865d652"
 ) {
   pools(where: { token: $degenx }, first: $first, skip: $skip) {
     id
     poolMembers(
       where: {
-        account_not: "0xc33539b3ca1923624762e8a42d699806c865d652"
+        account_not: $godAcc
         isConnected: false
         units_gt: 0
       }

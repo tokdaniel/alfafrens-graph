@@ -5,22 +5,16 @@ import { fetchPaginatedChannels } from "./fetchChannels";
 import TE from "fp-ts/TaskEither";
 import { writeFile } from "./utils/file-utis";
 import { fetchPaginatedPools } from "./fetchPools";
-import { ChannelsQuery } from "../subgraph/.graphclient";
 import { log } from "fp-ts/lib/Console";
 import { aggregatePoolMemberConnectionHealth } from "./memberConnectionHealthAggregation";
+import { fetchChannelOwnerHandles } from "./fetchChannelOwnerHandles";
+
+import {
+  transformChannelsToRecord,
+  transformHandlesToRecord,
+} from "./utils/transform";
 
 const client = getBuiltGraphSdkFor(supportedChains.base.id);
-
-const transformChannelsToRecord = (
-  channels: ChannelsQuery["channels"]
-): Record<string, boolean> =>
-  channels.reduce(
-    (acc, channel) => {
-      acc[channel.poolAddress.toLowerCase()] = true;
-      return acc;
-    },
-    {} as Record<string, boolean>
-  );
 
 const poolConnectionsHealth = pipe(
   TE.Do,
@@ -29,6 +23,17 @@ const poolConnectionsHealth = pipe(
   TE.bind("channelMap", ({ channelData }) =>
     TE.right(transformChannelsToRecord(channelData))
   ),
+  TE.chainFirst(() => TE.fromIO(log(`\n✅ done.\n`))),
+  TE.chainFirst(({ channelData }) =>
+    TE.fromIO(log(`\nFetching handles for ${channelData.length} channels...\n`))
+  ),
+  TE.bind("handles", ({ channelData }) =>
+    fetchChannelOwnerHandles(channelData)
+  ),
+  TE.bind("handleMap", ({ handles }) =>
+    TE.right(transformHandlesToRecord(handles))
+  ),
+  TE.chainFirst(() => TE.fromIO(log(`\n✅ done.\n`))),
   TE.chainFirst(() =>
     TE.fromIO(
       log(
@@ -43,6 +48,7 @@ const poolConnectionsHealth = pipe(
       "PoolsWithMembersConnectedAndZeroUnits"
     )
   ),
+  TE.chainFirst(() => TE.fromIO(log(`\n✅ done.\n`))),
   TE.chainFirst(() =>
     TE.fromIO(
       log(
@@ -57,9 +63,22 @@ const poolConnectionsHealth = pipe(
       "PoolsWithMembersDisConnectedAndNonZeroUnits"
     )
   ),
-  TE.bind("memberConnectionHealth", ({ poolsCuEQ0, poolsDuGT0 }) =>
-    TE.right(aggregatePoolMemberConnectionHealth(poolsCuEQ0.concat(poolsDuGT0)))
+  TE.chainFirst(() => TE.fromIO(log(`\n✅ done.\n`))),
+  TE.chainFirst(() =>
+    TE.fromIO(log(`\nGrouping pool health data based on members.\n`))
   ),
+  TE.bind(
+    "memberConnectionHealth",
+    ({ poolsCuEQ0, poolsDuGT0, channelMap, handleMap }) =>
+      TE.right(
+        aggregatePoolMemberConnectionHealth(
+          poolsCuEQ0.concat(poolsDuGT0),
+          channelMap,
+          handleMap
+        )
+      )
+  ),
+  TE.chainFirst(() => TE.fromIO(log(`\n✅ done.\n`))),
   TE.chain(({ poolsCuEQ0, poolsDuGT0, memberConnectionHealth }) =>
     pipe(
       writeFile(

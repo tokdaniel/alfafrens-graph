@@ -1,5 +1,6 @@
 import * as chains from "viem/chains";
 import metadata from "@superfluid-finance/metadata";
+import { Address } from "viem";
 
 export const supportedChains = {
   // arbitrum: chains.arbitrum,
@@ -27,6 +28,14 @@ export const supportedChainEntries = Object.entries(supportedChains) as [
   SupportedNetworkName,
   SupportedChain,
 ][];
+
+export const alfafrensAPI = {
+  url: "https://friendx-git-api-superfluid-finance.vercel.app/api/trpc/",
+  endpoints: {
+    getChannelsOwners: (addresses: Address[]) =>
+      `services.getChannelsOwners?channelAddresses=${addresses.join(",")}`,
+  },
+};
 
 export const subgraphUrls = supportedChainEntries.reduce<
   Record<ChainId, { url: string; fallback: string }>
