@@ -36,11 +36,15 @@ export const fetchChannels = pipe(
 
 export const fetchHandles = withCtx(
   ({
-    channelData,
     channelMap,
+    channelData,
+    poolsCuEQ0,
+    poolsDuGT0,
   }: {
-    channelData: ChannelsQuery["channels"];
     channelMap: ChannelMap;
+    channelData: ChannelsQuery["channels"];
+    poolsCuEQ0: PoolsWithMembersConnectedAndZeroUnitsQuery["pools"];
+    poolsDuGT0: PoolsWithMembersDisConnectedAndNonZeroUnitsQuery["pools"];
   }) =>
     pipe(
       TE.Do,
@@ -51,8 +55,8 @@ export const fetchHandles = withCtx(
       ),
       TE.bind("handles", () => fetchChannelOwnerHandles(channelData)),
       TE.let("ctx", ({ handles }) => ({
-        channelData,
-        channelMap,
+        poolsCuEQ0,
+        poolsDuGT0,
         handleMap: transformHandlesToRecord(handles, channelMap),
       })),
       TE.chainFirst(() => TE.fromIO(log(`\n✅ done.`)))
@@ -61,11 +65,11 @@ export const fetchHandles = withCtx(
 
 export const fetchPools = withCtx(
   ({
+    channelData,
     channelMap,
-    handleMap,
   }: {
+    channelData: ChannelsQuery["channels"];
     channelMap: ChannelMap;
-    handleMap: HandleMap;
   }) =>
     pipe(
       TE.Do,
@@ -99,9 +103,10 @@ export const fetchPools = withCtx(
         )
       ),
       TE.let("ctx", ({ poolsCuEQ0, poolsDuGT0 }) => ({
+        channelData,
+        channelMap,
         poolsCuEQ0,
         poolsDuGT0,
-        handleMap,
       })),
       TE.chainFirst(() => TE.fromIO(log(`\n✅ done.`)))
     )
@@ -177,6 +182,6 @@ export const writeFiles = withCtx(
           )
         )
       ),
-      TE.chain(() => TE.right({ ctx: void 0}))
+      TE.chain(() => TE.right({ ctx: void 0 }))
     )
 );

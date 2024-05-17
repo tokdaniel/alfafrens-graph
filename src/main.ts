@@ -10,8 +10,8 @@ import {
 
 const poolConnectionsHealth = pipe(
   fetchChannels,
-  TE.chain(fetchHandles),
   TE.chain(fetchPools),
+  TE.chain(fetchHandles),
   TE.chain(aggregatePoolMembers),
   TE.chain(writeFiles)
 );
