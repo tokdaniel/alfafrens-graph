@@ -108,7 +108,11 @@ export const fetchPools = withCtx(
 );
 
 export const aggregatePoolMembers = withCtx(
-  (ctx: {
+  ({
+    poolsCuEQ0,
+    poolsDuGT0,
+    handleMap,
+  }: {
     poolsCuEQ0: PoolsWithMembersConnectedAndZeroUnitsQuery["pools"];
     poolsDuGT0: PoolsWithMembersDisConnectedAndNonZeroUnitsQuery["pools"];
     handleMap: HandleMap;
@@ -119,10 +123,11 @@ export const aggregatePoolMembers = withCtx(
         TE.fromIO(log(`\nGrouping pool health data based on members.`))
       ),
       TE.let("ctx", () => ({
-        ...ctx,
+        poolsCuEQ0,
+        poolsDuGT0,
         memberConnectionHealth: aggregatePoolMemberConnectionHealth(
-          ctx.poolsCuEQ0.concat(ctx.poolsDuGT0),
-          ctx.handleMap
+          poolsCuEQ0.concat(poolsDuGT0),
+          handleMap
         ),
       })),
       TE.chainFirst(() => TE.fromIO(log(`✅ done.`))),
@@ -131,49 +136,49 @@ export const aggregatePoolMembers = withCtx(
 );
 
 export const writeFiles = withCtx(
-  (ctx: {
+  ({
+    poolsCuEQ0,
+    poolsDuGT0,
+    memberConnectionHealth,
+  }: {
     memberConnectionHealth: Map<string, MemberAggregation>;
     poolsCuEQ0: PoolsWithMembersConnectedAndZeroUnitsQuery["pools"];
     poolsDuGT0: PoolsWithMembersDisConnectedAndNonZeroUnitsQuery["pools"];
-    handleMap: HandleMap;
   }) =>
     pipe(
-      TE.Do,
+      writeFile(
+        "PoolsWithMembersConnectedAndZeroUnits.json",
+        JSON.stringify(poolsCuEQ0, null, 2)
+      ),
       TE.chain(() =>
-        pipe(
-          writeFile(
-            "PoolsWithMembersConnectedAndZeroUnits.json",
-            JSON.stringify(ctx.poolsCuEQ0, null, 2)
-          ),
-          TE.chain(() =>
-            writeFile(
-              "PoolsWithMembersDisConnectedAndNonZeroUnits.json",
-              JSON.stringify(ctx.poolsDuGT0, null, 2)
-            )
-          ),
-          TE.chain(() =>
-            writeFile(
-              "MemberConnectionHealth.json",
-              JSON.stringify(
-                Object.fromEntries(ctx.memberConnectionHealth.entries()),
-                null,
-                2
-              )
-            )
-          ),
-          TE.chainFirst(() =>
-            TE.fromIO(
-              log(
-                `\nFiles saved into:\n${[
-                  "\t- PoolsWithMembersConnectedAndZeroUnits.json",
-                  "\t- PoolsWithMembersDisConnectedAndNonZeroUnits.json",
-                  "\t- MemberConnectionHealth.json",
-                ].join("\n")}\n`
-              )
-            )
-          ),
-          TE.map(() => ({ ctx }))
+        writeFile(
+          "PoolsWithMembersDisConnectedAndNonZeroUnits.json",
+          JSON.stringify(poolsDuGT0, null, 2)
         )
-      )
+      ),
+      TE.chain(() =>
+        writeFile(
+          "MemberConnectionHealth.json",
+          JSON.stringify(
+            Object.fromEntries(memberConnectionHealth.entries()),
+            null,
+            2
+          )
+        )
+      ),
+      TE.chainFirst(() =>
+        TE.fromIO(
+          log(
+            `\nFiles saved into:\n${[
+              "\t- PoolsWithMembersConnectedAndZeroUnits.json",
+              "\t- PoolsWithMembersDisConnectedAndNonZeroUnits.json",
+              "\t- MemberConnectionHealth.json",
+            ].join("\n")}\n`
+          )
+        )
+      ),
+      TE.map(() => ({
+        ctx: { poolsCuEQ0, poolsDuGT0, memberConnectionHealth },
+      }))
     )
 );
