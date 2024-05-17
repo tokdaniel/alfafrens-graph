@@ -177,8 +177,6 @@ export const writeFiles = withCtx(
           )
         )
       ),
-      TE.map(() => ({
-        ctx: { poolsCuEQ0, poolsDuGT0, memberConnectionHealth },
-      }))
+      TE.chain(() => TE.right({ ctx: void 0}))
     )
 );
