@@ -1,0 +1,17 @@
+query ChannelBalances($degenx: String!, $first: Int, $skip: Int) {
+  accountTokenSnapshots(
+    where: {
+      account_: { isSuperApp: true }
+      token: $degenx
+      balanceUntilUpdatedAt_gt: "0"
+      activeGDAOutgoingStreamCount_lte: 1
+      activeCFAOutgoingStreamCount: 0
+    }
+    first: $first,
+    skip: $skip
+  ) {
+    updatedAtTimestamp
+    balanceUntilUpdatedAt
+    totalNetFlowRate
+  }
+}

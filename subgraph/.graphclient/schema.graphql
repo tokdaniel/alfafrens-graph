@@ -4110,6 +4110,11 @@ type ChannelMember {
   """
   isSubscribed: Boolean!
   """
+  Timestamp of last the subscription start (i.e. the last time `isSubscribed` turned to true).
+  
+  """
+  lastSubscribedTimestamp: BigInt
+  """
   A boolean indicating whether the user is staked to this channel.
   
   """
@@ -4140,7 +4145,7 @@ type ChannelMember {
   """
   totalSubscriptionOutflowRate: BigInt!
   """
-  Total subscription amount streamed to the channel.
+  Total subscription amount streamed to the channel until last updated timestamp.
   
   """
   totalSubscriptionOutflowAmount: BigInt!
@@ -4204,6 +4209,14 @@ input ChannelMember_filter {
   isSubscribed_not: Boolean
   isSubscribed_in: [Boolean!]
   isSubscribed_not_in: [Boolean!]
+  lastSubscribedTimestamp: BigInt
+  lastSubscribedTimestamp_not: BigInt
+  lastSubscribedTimestamp_gt: BigInt
+  lastSubscribedTimestamp_lt: BigInt
+  lastSubscribedTimestamp_gte: BigInt
+  lastSubscribedTimestamp_lte: BigInt
+  lastSubscribedTimestamp_in: [BigInt!]
+  lastSubscribedTimestamp_not_in: [BigInt!]
   isStaked: Boolean
   isStaked_not: Boolean
   isStaked_in: [Boolean!]
@@ -4324,6 +4337,7 @@ enum ChannelMember_orderBy {
   id
   status
   isSubscribed
+  lastSubscribedTimestamp
   isStaked
   currentStaked
   totalClaimed

@@ -161,6 +161,11 @@ export type ChannelMember = {
    */
   isSubscribed: Scalars['Boolean'];
   /**
+   * Timestamp of last the subscription start (i.e. the last time `isSubscribed` turned to true).
+   *
+   */
+  lastSubscribedTimestamp?: Maybe<Scalars['BigInt']>;
+  /**
    * A boolean indicating whether the user is staked to this channel.
    *
    */
@@ -191,7 +196,7 @@ export type ChannelMember = {
    */
   totalSubscriptionOutflowRate: Scalars['BigInt'];
   /**
-   * Total subscription amount streamed to the channel.
+   * Total subscription amount streamed to the channel until last updated timestamp.
    *
    */
   totalSubscriptionOutflowAmount: Scalars['BigInt'];
@@ -255,6 +260,14 @@ export type ChannelMember_filter = {
   isSubscribed_not?: InputMaybe<Scalars['Boolean']>;
   isSubscribed_in?: InputMaybe<Array<Scalars['Boolean']>>;
   isSubscribed_not_in?: InputMaybe<Array<Scalars['Boolean']>>;
+  lastSubscribedTimestamp?: InputMaybe<Scalars['BigInt']>;
+  lastSubscribedTimestamp_not?: InputMaybe<Scalars['BigInt']>;
+  lastSubscribedTimestamp_gt?: InputMaybe<Scalars['BigInt']>;
+  lastSubscribedTimestamp_lt?: InputMaybe<Scalars['BigInt']>;
+  lastSubscribedTimestamp_gte?: InputMaybe<Scalars['BigInt']>;
+  lastSubscribedTimestamp_lte?: InputMaybe<Scalars['BigInt']>;
+  lastSubscribedTimestamp_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  lastSubscribedTimestamp_not_in?: InputMaybe<Array<Scalars['BigInt']>>;
   isStaked?: InputMaybe<Scalars['Boolean']>;
   isStaked_not?: InputMaybe<Scalars['Boolean']>;
   isStaked_in?: InputMaybe<Array<Scalars['Boolean']>>;
@@ -375,6 +388,7 @@ export type ChannelMember_orderBy =
   | 'id'
   | 'status'
   | 'isSubscribed'
+  | 'lastSubscribedTimestamp'
   | 'isStaked'
   | 'currentStaked'
   | 'totalClaimed'

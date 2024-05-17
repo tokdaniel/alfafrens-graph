@@ -1,10 +1,10 @@
 import { Address } from "viem";
-import { PoolsWithMembersConnectedAndZeroUnitsQuery } from "../subgraph/.graphclient";
+import { PoolsWithMembersConnectedAndZeroUnitsQuery } from "../../subgraph/.graphclient";
 import { Monoid } from "fp-ts/lib/Monoid";
 import { pipe } from "fp-ts/lib/function";
 import * as A from "fp-ts/Array";
-import { GOD_ACCOUNT } from "./constants";
-import { MemberAggregation, User } from "./types";
+import { GOD_ACCOUNT } from "../constants";
+import { MemberAggregation, User } from "../types";
 
 type Pools = PoolsWithMembersConnectedAndZeroUnitsQuery["pools"];
 

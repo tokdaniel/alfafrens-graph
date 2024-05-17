@@ -1,4 +1,5 @@
 import { Address } from "viem";
+import { ChannelBalancesQuery } from "../../subgraph/.graphclient";
 
 export interface User {
   channelAddress: Address;
@@ -31,3 +32,6 @@ export type ChannelMap = Record<
   { channelAddress: Address; owner: Address }
 >;
 export type HandleMap = Record<Address, User>;
+
+export type ChannelBalance =
+  ChannelBalancesQuery["accountTokenSnapshots"][number];

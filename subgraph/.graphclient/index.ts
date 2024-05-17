@@ -3245,6 +3245,11 @@ export type ChannelMember = {
    */
   isSubscribed: Scalars['Boolean'];
   /**
+   * Timestamp of last the subscription start (i.e. the last time `isSubscribed` turned to true).
+   *
+   */
+  lastSubscribedTimestamp?: Maybe<Scalars['BigInt']>;
+  /**
    * A boolean indicating whether the user is staked to this channel.
    *
    */
@@ -3275,7 +3280,7 @@ export type ChannelMember = {
    */
   totalSubscriptionOutflowRate: Scalars['BigInt'];
   /**
-   * Total subscription amount streamed to the channel.
+   * Total subscription amount streamed to the channel until last updated timestamp.
    *
    */
   totalSubscriptionOutflowAmount: Scalars['BigInt'];
@@ -3339,6 +3344,14 @@ export type ChannelMember_Filter = {
   isSubscribed_not?: InputMaybe<Scalars['Boolean']>;
   isSubscribed_in?: InputMaybe<Array<Scalars['Boolean']>>;
   isSubscribed_not_in?: InputMaybe<Array<Scalars['Boolean']>>;
+  lastSubscribedTimestamp?: InputMaybe<Scalars['BigInt']>;
+  lastSubscribedTimestamp_not?: InputMaybe<Scalars['BigInt']>;
+  lastSubscribedTimestamp_gt?: InputMaybe<Scalars['BigInt']>;
+  lastSubscribedTimestamp_lt?: InputMaybe<Scalars['BigInt']>;
+  lastSubscribedTimestamp_gte?: InputMaybe<Scalars['BigInt']>;
+  lastSubscribedTimestamp_lte?: InputMaybe<Scalars['BigInt']>;
+  lastSubscribedTimestamp_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  lastSubscribedTimestamp_not_in?: InputMaybe<Array<Scalars['BigInt']>>;
   isStaked?: InputMaybe<Scalars['Boolean']>;
   isStaked_not?: InputMaybe<Scalars['Boolean']>;
   isStaked_in?: InputMaybe<Array<Scalars['Boolean']>>;
@@ -3459,6 +3472,7 @@ export type ChannelMember_OrderBy =
   | 'id'
   | 'status'
   | 'isSubscribed'
+  | 'lastSubscribedTimestamp'
   | 'isStaked'
   | 'currentStaked'
   | 'totalClaimed'
@@ -21809,6 +21823,7 @@ export type ChannelMemberResolvers<ContextType = MeshContext, ParentType extends
   id?: Resolver<ResolversTypes['Bytes'], ParentType, ContextType>;
   status?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   isSubscribed?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  lastSubscribedTimestamp?: Resolver<Maybe<ResolversTypes['BigInt']>, ParentType, ContextType>;
   isStaked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   currentStaked?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
   totalClaimed?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
@@ -23510,6 +23525,12 @@ const merger = new(StitchingMerger as any)({
     get documents() {
       return [
       {
+        document: ChannelBalancesDocument,
+        get rawSDL() {
+          return printWithCache(ChannelBalancesDocument);
+        },
+        location: 'ChannelBalancesDocument.graphql'
+      },{
         document: ChannelsDocument,
         get rawSDL() {
           return printWithCache(ChannelsDocument);
@@ -23571,6 +23592,15 @@ export function getBuiltGraphSDK<TGlobalContext = any, TOperationContext = any>(
   const sdkRequester$ = getBuiltGraphClient().then(({ sdkRequesterFactory }) => sdkRequesterFactory(globalContext));
   return getSdk<TOperationContext, TGlobalContext>((...args) => sdkRequester$.then(sdkRequester => sdkRequester(...args)));
 }
+export type ChannelBalancesQueryVariables = Exact<{
+  degenx: Scalars['String'];
+  first?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+}>;
+
+
+export type ChannelBalancesQuery = { accountTokenSnapshots: Array<Pick<AccountTokenSnapshot, 'updatedAtTimestamp' | 'balanceUntilUpdatedAt' | 'totalNetFlowRate'>> };
+
 export type ChannelsQueryVariables = Exact<{
   first?: InputMaybe<Scalars['Int']>;
   skip?: InputMaybe<Scalars['Int']>;
@@ -23588,6 +23618,7 @@ export type PoolsWithMembersConnectedAndZeroUnitsQueryVariables = Exact<{
   degenx: Scalars['String'];
   first?: InputMaybe<Scalars['Int']>;
   skip?: InputMaybe<Scalars['Int']>;
+  godAcc?: InputMaybe<Scalars['String']>;
 }>;
 
 
@@ -23603,6 +23634,7 @@ export type PoolsWithMembersDisConnectedAndNonZeroUnitsQueryVariables = Exact<{
   degenx: Scalars['String'];
   first?: InputMaybe<Scalars['Int']>;
   skip?: InputMaybe<Scalars['Int']>;
+  godAcc?: InputMaybe<Scalars['String']>;
 }>;
 
 
@@ -23638,6 +23670,19 @@ export const ChannelFragmentFragmentDoc = gql`
   totalSubscriptionInflowAmount
 }
     ` as unknown as DocumentNode<ChannelFragmentFragment, unknown>;
+export const ChannelBalancesDocument = gql`
+    query ChannelBalances($degenx: String!, $first: Int, $skip: Int) {
+  accountTokenSnapshots(
+    where: {account_: {isSuperApp: true}, token: $degenx, balanceUntilUpdatedAt_gt: "0", activeGDAOutgoingStreamCount_lte: 1, activeCFAOutgoingStreamCount: 0}
+    first: $first
+    skip: $skip
+  ) {
+    updatedAtTimestamp
+    balanceUntilUpdatedAt
+    totalNetFlowRate
+  }
+}
+    ` as unknown as DocumentNode<ChannelBalancesQuery, ChannelBalancesQueryVariables>;
 export const ChannelsDocument = gql`
     query Channels($first: Int, $skip: Int) {
   channels(first: $first, skip: $skip) {
@@ -23662,12 +23707,10 @@ export const GlobalDataDocument = gql`
 }
     ` as unknown as DocumentNode<GlobalDataQuery, GlobalDataQueryVariables>;
 export const PoolsWithMembersConnectedAndZeroUnitsDocument = gql`
-    query PoolsWithMembersConnectedAndZeroUnits($degenx: String!, $first: Int, $skip: Int) {
+    query PoolsWithMembersConnectedAndZeroUnits($degenx: String!, $first: Int, $skip: Int, $godAcc: String = "0xc33539b3ca1923624762e8a42d699806c865d652") {
   pools(where: {token: $degenx}, first: $first, skip: $skip) {
     id
-    poolMembers(
-      where: {account_not: "0xc33539b3ca1923624762e8a42d699806c865d652", isConnected: true, units: 0}
-    ) {
+    poolMembers(where: {account_not: $godAcc, isConnected: true, units: 0}) {
       id
       account {
         id
@@ -23679,12 +23722,10 @@ export const PoolsWithMembersConnectedAndZeroUnitsDocument = gql`
 }
     ` as unknown as DocumentNode<PoolsWithMembersConnectedAndZeroUnitsQuery, PoolsWithMembersConnectedAndZeroUnitsQueryVariables>;
 export const PoolsWithMembersDisConnectedAndNonZeroUnitsDocument = gql`
-    query PoolsWithMembersDisConnectedAndNonZeroUnits($degenx: String!, $first: Int, $skip: Int) {
+    query PoolsWithMembersDisConnectedAndNonZeroUnits($degenx: String!, $first: Int, $skip: Int, $godAcc: String = "0xc33539b3ca1923624762e8a42d699806c865d652") {
   pools(where: {token: $degenx}, first: $first, skip: $skip) {
     id
-    poolMembers(
-      where: {account_not: "0xc33539b3ca1923624762e8a42d699806c865d652", isConnected: false, units_gt: 0}
-    ) {
+    poolMembers(where: {account_not: $godAcc, isConnected: false, units_gt: 0}) {
       id
       account {
         id
@@ -23700,9 +23741,13 @@ export const PoolsWithMembersDisConnectedAndNonZeroUnitsDocument = gql`
 
 
 
+
 export type Requester<C = {}, E = unknown> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
+    ChannelBalances(variables: ChannelBalancesQueryVariables, options?: C): Promise<ChannelBalancesQuery> {
+      return requester<ChannelBalancesQuery, ChannelBalancesQueryVariables>(ChannelBalancesDocument, variables, options) as Promise<ChannelBalancesQuery>;
+    },
     Channels(variables?: ChannelsQueryVariables, options?: C): Promise<ChannelsQuery> {
       return requester<ChannelsQuery, ChannelsQueryVariables>(ChannelsDocument, variables, options) as Promise<ChannelsQuery>;
     },

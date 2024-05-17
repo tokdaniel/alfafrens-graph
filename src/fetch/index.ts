@@ -6,7 +6,7 @@ import TE from "fp-ts/TaskEither";
 import { writeFile } from "../utils/file-utis";
 import { fetchPaginatedPools } from "./fetchPools";
 import { log } from "fp-ts/lib/Console";
-import { aggregatePoolMemberConnectionHealth } from "../memberConnectionHealthAggregation";
+import { aggregatePoolMemberConnectionHealth } from "../aggregate/memberConnectionHealthAggregation";
 import { fetchChannelOwnerHandles } from "./fetchChannelOwnerHandles";
 
 import {
@@ -19,7 +19,8 @@ import {
   PoolsWithMembersConnectedAndZeroUnitsQuery,
   PoolsWithMembersDisConnectedAndNonZeroUnitsQuery,
 } from "../../subgraph/.graphclient";
-import { ChannelMap, HandleMap, MemberAggregation } from "../types";
+import { ChannelMap, MemberAggregation } from "../types";
+import { fetchPaginatedChannelBalances } from "./fetchChannelBalances";
 
 const client = getBuiltGraphSdkFor(supportedChains.base.id);
 
@@ -112,35 +113,7 @@ export const fetchPools = withCtx(
     )
 );
 
-export const aggregatePoolMembers = withCtx(
-  ({
-    poolsCuEQ0,
-    poolsDuGT0,
-    handleMap,
-  }: {
-    poolsCuEQ0: PoolsWithMembersConnectedAndZeroUnitsQuery["pools"];
-    poolsDuGT0: PoolsWithMembersDisConnectedAndNonZeroUnitsQuery["pools"];
-    handleMap: HandleMap;
-  }) =>
-    pipe(
-      TE.Do,
-      TE.chainFirst(() =>
-        TE.fromIO(log(`\nGrouping pool health data based on members.`))
-      ),
-      TE.let("ctx", () => ({
-        poolsCuEQ0,
-        poolsDuGT0,
-        memberConnectionHealth: aggregatePoolMemberConnectionHealth(
-          poolsCuEQ0.concat(poolsDuGT0),
-          handleMap
-        ),
-      })),
-      TE.chainFirst(() => TE.fromIO(log(`✅ done.`))),
-      TE.mapLeft((e) => new Error(e))
-    )
-);
-
-export const writeFiles = withCtx(
+export const writePoolHealthFiles = withCtx(
   ({
     poolsCuEQ0,
     poolsDuGT0,
@@ -179,6 +152,34 @@ export const writeFiles = withCtx(
               "\t- PoolsWithMembersDisConnectedAndNonZeroUnits.json",
               "\t- MemberConnectionHealth.json",
             ].join("\n")}\n`
+          )
+        )
+      ),
+      TE.chain(() => TE.right({ ctx: void 0 }))
+    )
+);
+
+export const fetchChannelBalances = pipe(
+  TE.Do,
+  TE.chainFirst(() => TE.fromIO(log("\nFetching Channel Balances...\n"))),
+  TE.bind("channelBalances", () => fetchPaginatedChannelBalances(client)),
+  TE.let("ctx", ({ channelBalances }) => ({ channelBalances })),
+  TE.chainFirst(() => TE.fromIO(log(`\n✅ done.`)))
+);
+
+export const writeChannelBalancesFile = withCtx(
+  ({ totalBalanceLocked }: { totalBalanceLocked: string }) =>
+    pipe(
+      writeFile(
+        "TotalChannelBalanceLocked.json",
+        JSON.stringify({ totalBalanceLocked }, null, 2)
+      ),
+      TE.chainFirst(() =>
+        TE.fromIO(
+          log(
+            `\nFile saved into:\n${["\t- TotalChannelBalanceLocked.json"].join(
+              "\n"
+            )}\n`
           )
         )
       ),
