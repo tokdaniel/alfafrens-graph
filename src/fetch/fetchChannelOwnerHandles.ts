@@ -1,11 +1,11 @@
 import * as TE from "fp-ts/TaskEither";
 import { pipe } from "fp-ts/lib/function";
-import { ChannelsQuery } from "../subgraph/.graphclient";
+import { ChannelsQuery } from "../../subgraph/.graphclient";
 
-import { log } from "./utils/cli-utils";
-import { CHUNK_SIZE } from "./constants";
-import { PaginatedChannelOwnerHandlesResponse } from "./types";
-import { fetchChannelOwnerHandlesChunk } from "./utils/fetch-utils";
+import { log } from "../utils/cli-utils";
+import { CHUNK_SIZE } from "../constants";
+import { PaginatedChannelOwnerHandlesResponse } from "../types";
+import { fetchChannelOwnerHandlesChunk } from "../utils/fetch-utils";
 
 export const fetchChannelOwnerHandles = (
   channels: ChannelsQuery["channels"],

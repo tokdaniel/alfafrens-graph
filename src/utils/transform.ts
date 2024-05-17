@@ -1,10 +1,12 @@
 import { Address } from "viem";
 import { ChannelsQuery } from "../../subgraph/.graphclient";
+import * as TE from "fp-ts/TaskEither";
 import {
   ChannelMap,
   HandleMap,
   PaginatedChannelOwnerHandlesResponse,
 } from "../types";
+import { pipe } from "fp-ts/lib/function";
 
 export const transformChannelsToRecord = (
   channels: ChannelsQuery["channels"]
@@ -33,3 +35,8 @@ export const transformHandlesToRecord = (
     };
     return acc;
   }, {});
+
+export const withCtx =
+  <A, B>(fn: (ctx: A) => TE.TaskEither<Error, { ctx: B }>) =>
+  (obj: { ctx: A }): TE.TaskEither<Error, { ctx: B }> =>
+    fn(obj.ctx);

@@ -1,11 +1,11 @@
-import { getBuiltGraphSdkFor } from "../subgraph";
-import { DEGENx } from "./constants";
+import { getBuiltGraphSdkFor } from "../../subgraph";
+import { DEGENx } from "../constants";
 import * as TE from "fp-ts/TaskEither";
 import { pipe } from "fp-ts/function";
-import { type PoolsWithMembersConnectedAndZeroUnitsQuery } from "../subgraph/.graphclient";
+import { type PoolsWithMembersConnectedAndZeroUnitsQuery } from "../../subgraph/.graphclient";
 import { Address } from "viem";
-import { ChannelMap, User } from "./types";
-import { log } from "./utils/cli-utils";
+import { ChannelMap, User } from "../types";
+import { log } from "../utils/cli-utils";
 
 interface PaginatedChannelsResponse<T> {
   data: T;
@@ -43,7 +43,7 @@ export const fetchPaginatedPools = (
       (reason: unknown) => new Error(String(reason))
     ),
     TE.chain((response) => {
-      const newPools = response.data.pools.filter((pool) => {
+      const pools = response.data.pools.filter((pool) => {
         return (
           pool.poolMembers.length > 0 &&
           Boolean(channelMap[pool.id.toLowerCase() as Address])
@@ -51,7 +51,7 @@ export const fetchPaginatedPools = (
       });
 
       const newData = accumulatedData.concat({
-        data: { pools: newPools },
+        data: { pools },
         currentPage: response.currentPage,
       });
 
@@ -60,7 +60,7 @@ export const fetchPaginatedPools = (
           `Fetched page ${response.currentPage + 1}, looking at ${
             response.data.pools.length
           } pools. Matching pools: ${
-            newPools.length
+            pools.length
           } Cumulative number of pools: ${
             newData.flatMap((d) => d.data.pools).length
           }`
