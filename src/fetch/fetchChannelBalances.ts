@@ -4,7 +4,6 @@ import * as TE from "fp-ts/TaskEither";
 import { pipe } from "fp-ts/function";
 import { ChannelBalancesQuery } from "../../subgraph/.graphclient";
 import { log } from "../utils/cli-utils";
-import { supportedChains } from "../endpoints";
 
 interface PaginatedChannelsResponse<T> {
   data: T;
