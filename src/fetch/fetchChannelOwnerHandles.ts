@@ -5,9 +5,9 @@ import { ChannelsQuery } from "../../subgraph/.graphclient";
 import { log } from "../utils/cli-utils";
 import { CHUNK_SIZE } from "../constants";
 import { PaginatedChannelOwnerHandlesResponse } from "../types";
-import { fetchChannelOwnerHandlesChunk } from "../utils/fetch-utils";
 
 export const fetchChannelOwnerHandles = (
+  fetchFn: (channels: ChannelsQuery["channels"]) => TE.TaskEither<Error, any>,
   channels: ChannelsQuery["channels"],
   chunk: number = 0,
   accumulatedData: PaginatedChannelOwnerHandlesResponse = {
@@ -31,7 +31,7 @@ export const fetchChannelOwnerHandles = (
         ).toFixed(2)}%`
       )
     ),
-    TE.chain(() => fetchChannelOwnerHandlesChunk(currentChunk)),
+    TE.chain(() => fetchFn(currentChunk)),
     TE.chain((response) => {
       const newAccumulatedData = {
         result: {
@@ -41,6 +41,7 @@ export const fetchChannelOwnerHandles = (
 
       if (remainingChunks.length > 0) {
         return fetchChannelOwnerHandles(
+          fetchFn,
           remainingChunks,
           chunk + 1,
           newAccumulatedData,

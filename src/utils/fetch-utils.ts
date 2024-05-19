@@ -26,11 +26,14 @@ export const fetchOwnersOfChannels = (
   );
 
 export const fetchChannelOwnerHandlesChunk = (
+  fetchFn: (
+    channels: Address[] | ChannelsQuery["channels"]
+  ) => Promise<Response>,
   channelsChunk: ChannelsQuery["channels"]
 ): TE.TaskEither<Error, PaginatedChannelOwnerHandlesResponse> =>
   pipe(
     TE.tryCatch(
-      () => fetchOwnersOfChannels(channelsChunk).then(processResponse),
+      () => fetchFn(channelsChunk).then(processResponse),
       (reason: unknown) => new Error(String(reason))
     )
   );
@@ -42,3 +45,7 @@ const processResponse = async (response: Response) => {
   const data: PaginatedChannelOwnerHandlesResponse = await response.json();
   return data;
 };
+
+export const fetchChannelOwnerHandlesChunkC = (
+  channels: ChannelsQuery["channels"]
+) => fetchChannelOwnerHandlesChunk(fetchOwnersOfChannels, channels);

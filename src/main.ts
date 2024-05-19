@@ -24,5 +24,5 @@ const totalLockedDegenBalance = pipe(
   TE.chain(writeChannelBalancesFile)
 );
 
-//await poolConnectionsHealth();
- await totalLockedDegenBalance();
+await poolConnectionsHealth();
+// await totalLockedDegenBalance();

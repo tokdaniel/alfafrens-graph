@@ -2,7 +2,7 @@ import { Monoid } from "fp-ts/lib/Monoid";
 import { ChannelBalance } from "../types";
 import { ChannelBalancesQuery } from "../../subgraph/.graphclient";
 import * as A from "fp-ts/Array";
-import { formatEther, parseEther } from "viem";
+import { formatEther } from "viem";
 import { pipe } from "fp-ts/lib/function";
 
 const getChannelBalancesMonoid = (): Monoid<bigint> => ({

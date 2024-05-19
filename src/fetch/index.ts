@@ -6,7 +6,6 @@ import TE from "fp-ts/TaskEither";
 import { writeFile } from "../utils/file-utis";
 import { fetchPaginatedPools } from "./fetchPools";
 import { log } from "fp-ts/lib/Console";
-import { aggregatePoolMemberConnectionHealth } from "../aggregate/memberConnectionHealthAggregation";
 import { fetchChannelOwnerHandles } from "./fetchChannelOwnerHandles";
 
 import {
@@ -21,6 +20,7 @@ import {
 } from "../../subgraph/.graphclient";
 import { ChannelMap, MemberAggregation } from "../types";
 import { fetchPaginatedChannelBalances } from "./fetchChannelBalances";
+import { fetchChannelOwnerHandlesChunkC } from "../utils/fetch-utils";
 
 const client = getBuiltGraphSdkFor(supportedChains.base.id);
 
@@ -54,7 +54,9 @@ export const fetchHandles = withCtx(
           log(`\nFetching handles for ${channelData.length} channels...\n`)
         )
       ),
-      TE.bind("handles", () => fetchChannelOwnerHandles(channelData)),
+      TE.bind("handles", () =>
+        fetchChannelOwnerHandles(fetchChannelOwnerHandlesChunkC, channelData)
+      ),
       TE.let("ctx", ({ handles }) => ({
         poolsCuEQ0,
         poolsDuGT0,

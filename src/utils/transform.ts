@@ -6,7 +6,6 @@ import {
   HandleMap,
   PaginatedChannelOwnerHandlesResponse,
 } from "../types";
-import { pipe } from "fp-ts/lib/function";
 
 export const transformChannelsToRecord = (
   channels: ChannelsQuery["channels"]
